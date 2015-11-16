@@ -34939,13 +34939,13 @@ module.exports = React.createClass({
 			),
 			React.createElement(
 				'div',
-				{ className: 'container-fluid' },
+				{ className: 'container-fluid footerP' },
 				React.createElement(
 					'div',
 					{ className: 'row' },
 					React.createElement(
 						'div',
-						{ className: 'col-xs-4' },
+						{ className: 'col-xs-12 col-sm-4' },
 						React.createElement(
 							'h4',
 							null,
@@ -34959,7 +34959,7 @@ module.exports = React.createClass({
 					),
 					React.createElement(
 						'div',
-						{ className: 'col-xs-4' },
+						{ className: 'col-xs-12 col-sm-4' },
 						React.createElement(
 							'h4',
 							null,
@@ -34973,7 +34973,7 @@ module.exports = React.createClass({
 					),
 					React.createElement(
 						'div',
-						{ className: 'col-xs-4' },
+						{ className: 'col-xs-12 col-sm-4' },
 						React.createElement(
 							'h4',
 							null,

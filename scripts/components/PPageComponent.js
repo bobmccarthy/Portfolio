@@ -122,17 +122,17 @@ module.exports = React.createClass({
 						</div>
 					</div>
 				</div>
-				<div className="container-fluid">
+				<div className="container-fluid footerP">
 					<div className="row">
-						<div className="col-xs-4">
+						<div className="col-xs-12 col-sm-4">
 							<h4>Email:</h4>
 							<p>bobmccarthyatx@gmail.com</p>
 						</div>
-						<div className="col-xs-4">
+						<div className="col-xs-12 col-sm-4">
 							<h4>Tumblr:</h4>
 							<p>bobatx.tumblr.com</p>
 						</div>
-						<div className="col-xs-4">
+						<div className="col-xs-12 col-sm-4">
 							<h4>Twitter:</h4>
 							<p>@bobdevatx</p>
 						</div>
