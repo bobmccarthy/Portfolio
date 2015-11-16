@@ -1,0 +1,427 @@
+body{
+	margin: 0;
+	margin-top: 2.8em;
+	// font-family: futura;
+	
+	background-color: #ECECEC;
+	
+}
+//Portfolio Home Page
+#hero{
+	background-image: url('../images/bluebonnets.jpg');
+	margin-top: -2.8em;
+	
+	background-size: cover;
+
+}
+.heroText{
+	background-color: rgba(0, 0, 0, .2);
+	padding: 5em 2em;
+	text-align: center;
+	color: white;
+	.lineBreak{
+		margin-left: 30%;
+		width: 40%;
+		box-sizing: border-box;
+		border: 2px solid black;
+	}
+}
+.myTitle{
+	text-align: center;
+	padding: 3em;
+	padding-bottom: 2em;
+	div{
+		font-size: 2em;
+	}
+}
+.aboutMe{
+	margin: 1em;
+	margin-bottom: 2em;
+}
+.GistRow{
+	background-color: white;
+	margin: 1em;
+	padding: 2em;
+	// border: 1px solid red;
+}
+.BlogRow{
+	background-color: white;
+	margin: 1em;
+	padding: 2em;
+	// border: 1px solid red;
+	.rightFloated{
+		float: right;
+	}
+}
+
+.item{
+	img{
+		margin: 0 auto;
+		max-height: 50em;
+	}
+}
+footer{
+	padding: 1em;
+	text-align: center;
+	border: 3px solid black;
+}
+
+
+
+
+
+
+
+//GIST SCSS
+
+
+
+#login{
+	z-index: 900;
+	position: absolute;
+	display: none;
+	width: 100%;
+	text-align: center;
+	padding: 10% 10%;
+	background-color: rgba(0, 0, 0, .7);
+	height: 100%;
+	.loginWhite{
+		background-color: white;
+		// height: 60%;
+		border: 3px solid #F79227;
+		.loginForm{
+			input{
+				border-style: none;
+				font-size: 2em;
+			}
+			button{
+				width: 40%;
+				height: 4em;
+				background-color: #F79227;
+				border-style: none;
+				display: block;
+				margin: 2em auto;
+			}
+		}
+	}
+}
+.top-navbar{
+	background-color: #707070;//the grey
+	
+	height: 2.8em;
+	img{
+		height: 3em;
+		margin-left: 1em;
+		margin-top: -0.2em;
+	}
+	a{
+		color: white;
+		font-size: 1.25em;
+		text-decoration: none;
+		margin-left: 1em;
+	}
+	.navBtn{
+		font-family: cursive;
+		font-size: 2.2em;
+		padding: 0.5em;
+		margin-left: -1.4em;
+		color: #F79227;
+		.spam{
+		
+			margin-left: 0.2em;
+			color: white;
+		}
+	}
+	.rightBtn{
+		font-size: 0.75em;
+		padding: 0.25em;
+		padding-top: 1em;
+	}
+	.active{
+		background-color: #F79227;//the orange
+	}
+	#proBtn{
+		margin-left: 0;
+
+	}
+}
+.bottom-navbar{
+	text-align: center;
+	.storeLogo{
+		background-color: #186DF1;
+		color: white;
+		padding: 2em;
+		font-family: futura;
+	}
+	.searches{
+		// padding-top: 1em;
+		.or{
+			display: inline;
+		}
+		a{
+
+			text-decoration: none;
+			display: inline;
+			button{
+				color: black;
+				border-style: none;
+			}
+		}
+		.searchy{
+			padding-top: 1.5em;
+		}
+		.adList{
+			background-color: #707070;
+			color: white;
+		}
+	}
+	p{
+		font-size: 1.5em;
+		margin-top: 0.75em;
+		margin-bottom: 0;
+	}
+	input{
+		border-style: none;
+		font-size: 1.5em;
+		margin-top: 1em;
+	}
+
+	#myLists{
+		background-image: url('../images/down-arrow.png');
+		height: 2em;
+		margin: .7em;
+	}
+}
+.listItemDeets{
+	font-size: 1.25em;
+	.quantity{
+		display: inline;
+		width: 2em;
+	}
+
+}
+.categoryTitle{
+	text-align: left;
+	margin-top: 1em;
+}
+#checkMark{
+	height: 1em;
+	padding: 0 2em;
+}
+
+.homeBkg{
+
+	.item{
+
+		img{
+			margin: 0 auto;
+			max-height: 100%;
+		}
+	}
+	footer{
+		padding: 1em;
+		text-align: center;
+		background-color: #707070;
+	}
+	.description{
+		padding: 1em 2em;
+		h2{
+			color: #F79227;
+		}
+	}
+}
+
+
+.right{
+	float: right;
+}
+
+
+.eachList{
+	background-color: white;
+	padding: 1em;
+	margin-top: 1em;
+	h2{
+		margin-top: 0;
+	}
+	button{
+		float: right;
+		background-color: #F79227;
+		color: white;
+		border-style: none;
+	}
+	.listContents{
+		display: none;
+	}
+}
+.xtraMargin{
+	margin-top: 1em;
+	text-align: center;
+}
+.listItems{
+	height: 14em;
+	padding: 1em;
+	background-color: white;
+	
+	.addToCart{
+		background-color: #F79227;
+		color: white;
+		border-style: none;
+	}
+	.button{
+		margin-top: -1em;
+		margin-right: -1em;
+		float: right;
+	}
+}
+.listBoxProducts{
+	input{
+		width: 50%;
+	}
+}
+.singleProduct{
+	width:70%;
+	margin-left:15%;
+	margin-top: 2em;
+	.ingredientsP{
+		margin-bottom: 0.2em;
+	}
+	.largeImg{
+		// width: 70%;
+		// max-height: 20em;
+		height: 15em;
+	}
+	.back{
+		background-color: #F79227;
+		border-style: none;
+		color: white;
+		float: right;
+
+	}
+	
+}
+.toggler{
+	display: none;
+}
+.itemPic{
+	margin-top: 1.2em;
+	margin-right: -4em;
+	height: 5em;
+}
+.addList{
+	// text-align: center;
+	.addListCont{
+		background-color: white;
+		h3{
+			text-align: left;
+		}
+		width: 50%;
+		margin: 2em 25%;
+		padding: 2em;
+		input{
+			font-size: 2em;
+			width: 100%;
+		}
+		button{
+			display: block;
+			margin-top: 1em;
+			height: 3.1em;
+			background-color: #F79227;
+			color: white;
+			border-style: none;
+		}
+		
+	}
+
+}
+.infoForm{
+	background-color: white;
+	#cancelBtn{
+		float: right;
+		margin-bottom: 0.5em;
+	}
+	form{
+		padding: 1em;
+		div{
+			padding-top: 2em;
+			padding-bottom: 1em;
+		}
+		.not{
+			padding-top: 0;
+		}
+		button{
+			background-color: #F79227;
+			color: white;
+			margin-top: 1em;
+			display: block;
+		}
+	}
+}
+@media screen and (min-width: 30em){
+	.top-navbar{
+		.rightBtn{
+			font-size: 1em;
+			padding: 0.35em;
+			padding-top: 0.8em;
+		}
+	}
+}
+@media screen and (min-width: 48em){
+	.infoForm{
+		font-size: 2em;
+		form{
+			div{
+				padding: 1em 0 0.25em 0;
+			}
+			input{
+				width: 75%;
+				font-size: 0.75em;
+			}
+			button{
+				background-color: #F79227;
+				color: white;
+				margin-top: 1em;
+				display: block;
+			}
+		}
+		#cancelBtn{
+			float: right;
+			margin-bottom: 0.5em;
+		}
+
+	}
+	.top-navbar{
+		.rightBtn{
+			font-size: 1.6em;
+			padding: 0.25em;
+		}
+	}
+	
+
+}
+@media screen and (min-width: 62em){
+	.homeBkg{
+		.item{
+			height: 37em;
+		}
+	}
+}
+
+.box-shadow--2dp {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+.box-shadow--3dp {
+   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .14), 0 3px 3px -2px rgba(0, 0, 0, .2), 0 1px 8px 0 rgba(0, 0, 0, .12);
+}
+.box-shadow--4dp {
+   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
+}
+.box-shadow--6dp {
+   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2);
+}
+.box-shadow--8dp {
+   box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2);
+}
+.box-shadow--16dp {
+   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
+}

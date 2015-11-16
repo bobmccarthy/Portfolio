@@ -1,0 +1,309 @@
+body {
+  margin: 0;
+  margin-top: 2.8em;
+  background-color: #ECECEC; }
+
+#hero {
+  background-image: url("../images/bluebonnets.jpg");
+  margin-top: -2.8em;
+  background-size: cover; }
+
+.heroText {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 5em 2em;
+  text-align: center;
+  color: white; }
+  .heroText .lineBreak {
+    margin-left: 30%;
+    width: 40%;
+    box-sizing: border-box;
+    border: 2px solid black; }
+
+.myTitle {
+  text-align: center;
+  padding: 3em;
+  padding-bottom: 2em; }
+  .myTitle div {
+    font-size: 2em; }
+
+.aboutMe {
+  margin: 1em;
+  margin-bottom: 2em; }
+
+.GistRow {
+  background-color: white;
+  margin: 1em;
+  padding: 2em; }
+
+.BlogRow {
+  background-color: white;
+  margin: 1em;
+  padding: 2em; }
+  .BlogRow .rightFloated {
+    float: right; }
+
+.item img {
+  margin: 0 auto;
+  max-height: 50em; }
+
+footer {
+  padding: 1em;
+  text-align: center;
+  border: 3px solid black; }
+
+#login {
+  z-index: 900;
+  position: absolute;
+  display: none;
+  width: 100%;
+  text-align: center;
+  padding: 10% 10%;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%; }
+  #login .loginWhite {
+    background-color: white;
+    border: 3px solid #F79227; }
+    #login .loginWhite .loginForm input {
+      border-style: none;
+      font-size: 2em; }
+    #login .loginWhite .loginForm button {
+      width: 40%;
+      height: 4em;
+      background-color: #F79227;
+      border-style: none;
+      display: block;
+      margin: 2em auto; }
+
+.top-navbar {
+  background-color: #707070;
+  height: 2.8em; }
+  .top-navbar img {
+    height: 3em;
+    margin-left: 1em;
+    margin-top: -0.2em; }
+  .top-navbar a {
+    color: white;
+    font-size: 1.25em;
+    text-decoration: none;
+    margin-left: 1em; }
+  .top-navbar .navBtn {
+    font-family: cursive;
+    font-size: 2.2em;
+    padding: 0.5em;
+    margin-left: -1.4em;
+    color: #F79227; }
+    .top-navbar .navBtn .spam {
+      margin-left: 0.2em;
+      color: white; }
+  .top-navbar .rightBtn {
+    font-size: 0.75em;
+    padding: 0.25em;
+    padding-top: 1em; }
+  .top-navbar .active {
+    background-color: #F79227; }
+  .top-navbar #proBtn {
+    margin-left: 0; }
+
+.bottom-navbar {
+  text-align: center; }
+  .bottom-navbar .storeLogo {
+    background-color: #186DF1;
+    color: white;
+    padding: 2em;
+    font-family: futura; }
+  .bottom-navbar .searches .or {
+    display: inline; }
+  .bottom-navbar .searches a {
+    text-decoration: none;
+    display: inline; }
+    .bottom-navbar .searches a button {
+      color: black;
+      border-style: none; }
+  .bottom-navbar .searches .searchy {
+    padding-top: 1.5em; }
+  .bottom-navbar .searches .adList {
+    background-color: #707070;
+    color: white; }
+  .bottom-navbar p {
+    font-size: 1.5em;
+    margin-top: 0.75em;
+    margin-bottom: 0; }
+  .bottom-navbar input {
+    border-style: none;
+    font-size: 1.5em;
+    margin-top: 1em; }
+  .bottom-navbar #myLists {
+    background-image: url("../images/down-arrow.png");
+    height: 2em;
+    margin: .7em; }
+
+.listItemDeets {
+  font-size: 1.25em; }
+  .listItemDeets .quantity {
+    display: inline;
+    width: 2em; }
+
+.categoryTitle {
+  text-align: left;
+  margin-top: 1em; }
+
+#checkMark {
+  height: 1em;
+  padding: 0 2em; }
+
+.homeBkg .item img {
+  margin: 0 auto;
+  max-height: 100%; }
+
+.homeBkg footer {
+  padding: 1em;
+  text-align: center;
+  background-color: #707070; }
+
+.homeBkg .description {
+  padding: 1em 2em; }
+  .homeBkg .description h2 {
+    color: #F79227; }
+
+.right {
+  float: right; }
+
+.eachList {
+  background-color: white;
+  padding: 1em;
+  margin-top: 1em; }
+  .eachList h2 {
+    margin-top: 0; }
+  .eachList button {
+    float: right;
+    background-color: #F79227;
+    color: white;
+    border-style: none; }
+  .eachList .listContents {
+    display: none; }
+
+.xtraMargin {
+  margin-top: 1em;
+  text-align: center; }
+
+.listItems {
+  height: 14em;
+  padding: 1em;
+  background-color: white; }
+  .listItems .addToCart {
+    background-color: #F79227;
+    color: white;
+    border-style: none; }
+  .listItems .button {
+    margin-top: -1em;
+    margin-right: -1em;
+    float: right; }
+
+.listBoxProducts input {
+  width: 50%; }
+
+.singleProduct {
+  width: 70%;
+  margin-left: 15%;
+  margin-top: 2em; }
+  .singleProduct .ingredientsP {
+    margin-bottom: 0.2em; }
+  .singleProduct .largeImg {
+    height: 15em; }
+  .singleProduct .back {
+    background-color: #F79227;
+    border-style: none;
+    color: white;
+    float: right; }
+
+.toggler {
+  display: none; }
+
+.itemPic {
+  margin-top: 1.2em;
+  margin-right: -4em;
+  height: 5em; }
+
+.addList .addListCont {
+  background-color: white;
+  width: 50%;
+  margin: 2em 25%;
+  padding: 2em; }
+  .addList .addListCont h3 {
+    text-align: left; }
+  .addList .addListCont input {
+    font-size: 2em;
+    width: 100%; }
+  .addList .addListCont button {
+    display: block;
+    margin-top: 1em;
+    height: 3.1em;
+    background-color: #F79227;
+    color: white;
+    border-style: none; }
+
+.infoForm {
+  background-color: white; }
+  .infoForm #cancelBtn {
+    float: right;
+    margin-bottom: 0.5em; }
+  .infoForm form {
+    padding: 1em; }
+    .infoForm form div {
+      padding-top: 2em;
+      padding-bottom: 1em; }
+    .infoForm form .not {
+      padding-top: 0; }
+    .infoForm form button {
+      background-color: #F79227;
+      color: white;
+      margin-top: 1em;
+      display: block; }
+
+@media screen and (min-width: 30em) {
+  .top-navbar .rightBtn {
+    font-size: 1em;
+    padding: 0.35em;
+    padding-top: 0.8em; } }
+
+@media screen and (min-width: 48em) {
+  .infoForm {
+    font-size: 2em; }
+    .infoForm form div {
+      padding: 1em 0 0.25em 0; }
+    .infoForm form input {
+      width: 75%;
+      font-size: 0.75em; }
+    .infoForm form button {
+      background-color: #F79227;
+      color: white;
+      margin-top: 1em;
+      display: block; }
+    .infoForm #cancelBtn {
+      float: right;
+      margin-bottom: 0.5em; }
+  .top-navbar .rightBtn {
+    font-size: 1.6em;
+    padding: 0.25em; } }
+
+@media screen and (min-width: 62em) {
+  .homeBkg .item {
+    height: 37em; } }
+
+.box-shadow--2dp {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+
+.box-shadow--3dp {
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12); }
+
+.box-shadow--4dp {
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2); }
+
+.box-shadow--6dp {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2); }
+
+.box-shadow--8dp {
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); }
+
+.box-shadow--16dp {
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2); }
