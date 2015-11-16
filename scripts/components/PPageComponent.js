@@ -71,7 +71,7 @@ module.exports = React.createClass({
 							</div> 
 						</div>
 						<div className="col-xs-12 col-sm-8">
-							<h2>You Get the Gist!</h2>
+							<a href="#Gist"><h2>You Get the Gist!</h2></a>
 							<p>All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST 
 							</p>
 						</div>

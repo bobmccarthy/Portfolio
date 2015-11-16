@@ -34844,9 +34844,13 @@ module.exports = React.createClass({
 						'div',
 						{ className: 'col-xs-12 col-sm-8' },
 						React.createElement(
-							'h2',
-							null,
-							'You Get the Gist!'
+							'a',
+							{ href: '#Gist' },
+							React.createElement(
+								'h2',
+								null,
+								'You Get the Gist!'
+							)
 						),
 						React.createElement(
 							'p',
