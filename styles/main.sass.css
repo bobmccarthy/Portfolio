@@ -31,16 +31,40 @@ body {
   margin-bottom: 2em; }
 
 .GistRow {
+  text-decoration: none;
   background-color: white;
   margin: 1em;
   padding: 2em; }
+  .GistRow .exploreBtn {
+    background-color: white; }
+
+.ImageRow {
+  text-decoration: none;
+  background-color: white;
+  margin: 1em;
+  padding: 2em; }
+  .ImageRow .exploreBtn {
+    background-color: white; }
 
 .BlogRow {
+  text-decoration: none;
   background-color: white;
   margin: 1em;
   padding: 2em; }
   .BlogRow .rightFloated {
     float: right; }
+  .BlogRow .exploreBtn {
+    background-color: white; }
+
+.ProductsRow {
+  text-decoration: none;
+  background-color: white;
+  margin: 1em;
+  padding: 2em; }
+  .ProductsRow .rightFloated {
+    float: right; }
+  .ProductsRow .exploreBtn {
+    background-color: white; }
 
 .item img {
   margin: 0 auto;

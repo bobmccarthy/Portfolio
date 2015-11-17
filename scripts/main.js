@@ -17,6 +17,8 @@ var ProfileComponent = require('./components/ProfileComponent');
 var MyListsComponent = require('./components/MyListsComponent');
 var ItemDetailsComponent = require('./components/ItemDetailsComponent');
 var AddListComponent = require('./components/AddListComponent');
+var BoblogComponent = require('./components/BoblogComponent');
+
 
 $(document).on('ready', function(){
 	var Router = Backbone.Router.extend({
@@ -29,13 +31,16 @@ $(document).on('ready', function(){
 			'profile': 'profile',
 			'myLists(/:id)': 'myLists',
 			'details/:id': 'details',
-			'addList': 'addList'
+			'addList': 'addList',
+			'BL': 'BLhome'
 		},
 		home: function(){
 			ReactDOM.render(<PPageComponent />,
 			document.getElementById('main'));
+			$('#nav').hide();
 		},
 		Ghome: function() {
+			$('#nav').show();
 			$('#login').hide();
 			ReactDOM.render(<HomeComponent />,
 			document.getElementById('main'));
@@ -80,6 +85,10 @@ $(document).on('ready', function(){
 			ReactDOM.render(
 			<NavigationComponent router={r} />,
 			document.getElementById('nav'));
+		},
+		BLhome: function() {
+			ReactDOM.render(<BoblogComponent router={r} />,
+			document.getElementById('main'));
 		}
 	});
 

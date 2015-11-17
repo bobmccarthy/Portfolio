@@ -33,7 +33,7 @@ module.exports = React.createClass({
 					</div>
 					<div className="row GistRow">
 						<div className="col-xs-12 col-sm-4">
-							<div id="carousel-example-generic" className="carousel slide" data-ride="carousel" data-interval="20000">
+							<div id="carousel-example-generic" className="carousel slide" data-ride="carousel" data-interval="10000">
 								<ol className="carousel-indicators">
 									<li data-target="#carousel-example-generic" data-slide-to="0" className="active"></li>
 									<li data-target="#carousel-example-generic" data-slide-to="1"></li>
@@ -72,13 +72,13 @@ module.exports = React.createClass({
 						</div>
 						<div className="col-xs-12 col-sm-8">
 							<a href="#Gist"><h2>You Get the Gist!</h2></a>
-							<p>All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST 
-							</p>
+							<p>All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST </p>
+							<a href="#Gist"><button className="exploreBtn">Explore</button></a>
 						</div>
 					</div>
 					<div className="row BlogRow">
 						<div className="col-xs-12 col-sm-4 rightFloated">
-							<div id="carousel-example-generic2" className="carousel slide" data-ride="carousel" data-interval="20000">
+							<div id="carousel-example-generic2" className="carousel slide" data-ride="carousel" data-interval="11000">
 								<ol className="carousel-indicators">
 									<li data-target="#carousel-example-generic2" data-slide-to="0" className="active"></li>
 									<li data-target="#carousel-example-generic2" data-slide-to="1"></li>
@@ -87,19 +87,19 @@ module.exports = React.createClass({
 
 								<div className="carousel-inner">
 									<div className="item active">
-										<img className="computer1" src="../../images/boblog.png"/>
+										<img className="computer1" src="../../images/Boblog.png"/>
 										<div className="carousel-caption">
 											<h3></h3>
 										</div>
 									</div>
 									<div className="item">
-										<img className="adjust" src="../../images/boblog.png"/>
+										<img className="adjust" src="../../images/ImageBoard.png"/>
 										<div className="carousel-caption">
 											<h3></h3>
 										</div>
 									</div>
 									<div className="item">
-										<img src="../../images/boblog.png" alt="..."/>
+										<img src="../../images/parse-products.png" alt="..."/>
 										<div className="carousel-caption">
 											<h3></h3>
 										</div>
@@ -116,11 +116,12 @@ module.exports = React.createClass({
 							</div> 
 						</div>
 						<div className="col-xs-12 col-sm-8">
-							<h2>Make a Post!!</h2>
-							<p>BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog 
-							</p>
+							<a href="#BL"><h2>Make a Post, or Buy a Book!</h2></a>
+							<p>BobLog Parse-Products ImageBoard </p>
+							<a href="#BL"><button className="exploreBtn">Explore</button></a>
 						</div>
 					</div>
+					
 				</div>
 				<div className="container-fluid footerP">
 					<div className="row">
@@ -142,6 +143,96 @@ module.exports = React.createClass({
 		)
 	}
 });
+// <div className="row ImageRow">
+// 	<div className="col-xs-12 col-sm-4 rightFloated">
+// 		<div id="carousel-example-generic3" className="carousel slide" data-ride="carousel" data-interval="12000">
+// 			<ol className="carousel-indicators">
+// 				<li data-target="#carousel-example-generic3" data-slide-to="0" className="active"></li>
+// 				<li data-target="#carousel-example-generic3" data-slide-to="1"></li>
+// 				<li data-target="#carousel-example-generic3" data-slide-to="2"></li>
+// 			</ol>
+
+// 			<div className="carousel-inner">
+// 				<div className="item active">
+// 					<img className="computer1" src="../../images/ImageBoard.png"/>
+// 					<div className="carousel-caption">
+// 						<h3></h3>
+// 					</div>
+// 				</div>
+// 				<div className="item">
+// 					<img className="adjust" src="../../images/ImageBoard.png"/>
+// 					<div className="carousel-caption">
+// 						<h3></h3>
+// 					</div>
+// 				</div>
+// 				<div className="item">
+// 					<img src="../../images/ImageBoard.png" alt="..."/>
+// 					<div className="carousel-caption">
+// 						<h3></h3>
+// 					</div>
+// 				</div>
+// 			</div>
+
+			
+// 			<a className="left carousel-control" href="#carousel-example-generic3" role="button" data-slide="prev">
+// 				<span className="glyphicon glyphicon-chevron-left"></span>
+// 			</a>
+// 			<a className="right carousel-control" href="#carousel-example-generic3" role="button" data-slide="next">
+// 				<span className="glyphicon glyphicon-chevron-right"></span>
+// 			</a>
+// 		</div> 
+// 	</div>
+// 	<div className="col-xs-12 col-sm-8">
+// 		<a href="#BL"><h2>Ajax Image Board!!</h2></a>
+// 		<p>Ajax Image Board Ajax Image Board Ajax Image Board Ajax Image Board Ajax Image Board Ajax Image Board Ajax Image Board Ajax Image Board Ajax Image Board Ajax Image Board</p>
+// 		<a href="#IB"><button className="exploreBtn">Explore</button></a>
+// 	</div>
+// </div>
+// <div className="row ProductsRow">
+// 	<div className="col-xs-12 col-sm-4 rightFloated">
+// 		<div id="carousel-example-generic4" className="carousel slide" data-ride="carousel" data-interval="12000">
+// 			<ol className="carousel-indicators">
+// 				<li data-target="#carousel-example-generic4" data-slide-to="0" className="active"></li>
+// 				<li data-target="#carousel-example-generic4" data-slide-to="1"></li>
+// 				<li data-target="#carousel-example-generic4" data-slide-to="2"></li>
+// 			</ol>
+
+// 			<div className="carousel-inner">
+// 				<div className="item active">
+// 					<img className="computer1" src="../../images/parse-products.png"/>
+// 					<div className="carousel-caption">
+// 						<h3></h3>
+// 					</div>
+// 				</div>
+// 				<div className="item">
+// 					<img className="adjust" src="../../images/parse-products.png"/>
+// 					<div className="carousel-caption">
+// 						<h3></h3>
+// 					</div>
+// 				</div>
+// 				<div className="item">
+// 					<img src="../../images/parse-products.png" alt="..."/>
+// 					<div className="carousel-caption">
+// 						<h3></h3>
+// 					</div>
+// 				</div>
+// 			</div>
+
+			
+// 			<a className="left carousel-control" href="#carousel-example-generic4" role="button" data-slide="prev">
+// 				<span className="glyphicon glyphicon-chevron-left"></span>
+// 			</a>
+// 			<a className="right carousel-control" href="#carousel-example-generic4" role="button" data-slide="next">
+// 				<span className="glyphicon glyphicon-chevron-right"></span>
+// 			</a>
+// 		</div> 
+// 	</div>
+// 	<div className="col-xs-12 col-sm-8">
+// 		<a href="#BL"><h2>Parse-Products!!</h2></a>
+// 		<p>Parse Products Project Parse Products Project Parse Products Project Parse Products Project Parse Products Project Parse Products Project Parse Products Project Parse Products Project Parse Products Project Parse Products Project </p>
+// 		<a href="#PP"><button className="exploreBtn">Explore</button></a>
+// 	</div>
+// </div>
 // <div className="homeImg">
 // 					<img src="../../images/comp2.jpg"/>
 // 					<img src="../../images/phone.png"/>

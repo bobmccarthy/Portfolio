@@ -34129,7 +34129,26 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListModel":188,"react":173}],175:[function(require,module,exports){
+},{"../models/ListModel":189,"react":173}],175:[function(require,module,exports){
+//This is the navigation component. The router has been passed in as a property.
+'use strict';
+
+var React = require('react');
+var Backbone = require('backbone');
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	render: function render() {
+		return React.createElement(
+			'h1',
+			null,
+			'All About Boblog'
+		);
+	}
+});
+
+},{"backbone":1,"react":173}],176:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -34214,7 +34233,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListProductsModel":189,"../models/ProductModel":190,"jquery":17,"react":173}],176:[function(require,module,exports){
+},{"../models/ListProductsModel":190,"../models/ProductModel":191,"jquery":17,"react":173}],177:[function(require,module,exports){
 //This is the navigation component. The router has been passed in as a property.
 'use strict';
 
@@ -34328,7 +34347,7 @@ module.exports = React.createClass({
 // 					<img src="../../images/phone.png"/>
 // 				</div>
 
-},{"backbone":1,"react":173}],177:[function(require,module,exports){
+},{"backbone":1,"react":173}],178:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -34368,7 +34387,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ProductModel":190,"./SingleProductBoxComponent":185,"react":173}],178:[function(require,module,exports){
+},{"../models/ProductModel":191,"./SingleProductBoxComponent":186,"react":173}],179:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -34420,7 +34439,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListModel":188,"backbone":1,"jquery":17,"react":173}],179:[function(require,module,exports){
+},{"../models/ListModel":189,"backbone":1,"jquery":17,"react":173}],180:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -34538,7 +34557,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListModel":188,"../models/ProductModel":190,"../models/UserModel":191,"./EachProductComponent":175,"./TotalPriceComponent":186,"backbone":1,"backbone/node_modules/underscore":2,"react":173}],180:[function(require,module,exports){
+},{"../models/ListModel":189,"../models/ProductModel":191,"../models/UserModel":192,"./EachProductComponent":176,"./TotalPriceComponent":187,"backbone":1,"backbone/node_modules/underscore":2,"react":173}],181:[function(require,module,exports){
 //This is the navigation component. The router has been passed in as a property.
 'use strict';
 
@@ -34650,7 +34669,7 @@ module.exports = React.createClass({
 				React.createElement('img', { src: '../../images/scroll4.png' }),
 				React.createElement(
 					'a',
-					{ className: 'navBtn', href: '#' },
+					{ className: 'navBtn', href: '#Gist' },
 					React.createElement(
 						'strong',
 						null,
@@ -34661,6 +34680,11 @@ module.exports = React.createClass({
 						{ className: 'spam' },
 						'ist'
 					)
+				),
+				React.createElement(
+					'a',
+					{ className: 'portBtn', href: '#' },
+					'Back to Portfolio'
 				),
 				navChange
 			)
@@ -34693,7 +34717,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListModel":188,"backbone":1,"bootstrap":3,"react":173}],181:[function(require,module,exports){
+},{"../models/ListModel":189,"backbone":1,"bootstrap":3,"react":173}],182:[function(require,module,exports){
 //This is the navigation component. The router has been passed in as a property.
 'use strict';
 
@@ -34786,7 +34810,7 @@ module.exports = React.createClass({
 						{ className: 'col-xs-12 col-sm-4' },
 						React.createElement(
 							'div',
-							{ id: 'carousel-example-generic', className: 'carousel slide', 'data-ride': 'carousel', 'data-interval': '20000' },
+							{ id: 'carousel-example-generic', className: 'carousel slide', 'data-ride': 'carousel', 'data-interval': '10000' },
 							React.createElement(
 								'ol',
 								{ className: 'carousel-indicators' },
@@ -34855,7 +34879,16 @@ module.exports = React.createClass({
 						React.createElement(
 							'p',
 							null,
-							'All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST'
+							'All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST '
+						),
+						React.createElement(
+							'a',
+							{ href: '#Gist' },
+							React.createElement(
+								'button',
+								{ className: 'exploreBtn' },
+								'Explore'
+							)
 						)
 					)
 				),
@@ -34867,7 +34900,7 @@ module.exports = React.createClass({
 						{ className: 'col-xs-12 col-sm-4 rightFloated' },
 						React.createElement(
 							'div',
-							{ id: 'carousel-example-generic2', className: 'carousel slide', 'data-ride': 'carousel', 'data-interval': '20000' },
+							{ id: 'carousel-example-generic2', className: 'carousel slide', 'data-ride': 'carousel', 'data-interval': '11000' },
 							React.createElement(
 								'ol',
 								{ className: 'carousel-indicators' },
@@ -34881,7 +34914,7 @@ module.exports = React.createClass({
 								React.createElement(
 									'div',
 									{ className: 'item active' },
-									React.createElement('img', { className: 'computer1', src: '../../images/boblog.png' }),
+									React.createElement('img', { className: 'computer1', src: '../../images/Boblog.png' }),
 									React.createElement(
 										'div',
 										{ className: 'carousel-caption' },
@@ -34891,7 +34924,7 @@ module.exports = React.createClass({
 								React.createElement(
 									'div',
 									{ className: 'item' },
-									React.createElement('img', { className: 'adjust', src: '../../images/boblog.png' }),
+									React.createElement('img', { className: 'adjust', src: '../../images/ImageBoard.png' }),
 									React.createElement(
 										'div',
 										{ className: 'carousel-caption' },
@@ -34901,7 +34934,7 @@ module.exports = React.createClass({
 								React.createElement(
 									'div',
 									{ className: 'item' },
-									React.createElement('img', { src: '../../images/boblog.png', alt: '...' }),
+									React.createElement('img', { src: '../../images/parse-products.png', alt: '...' }),
 									React.createElement(
 										'div',
 										{ className: 'carousel-caption' },
@@ -34925,14 +34958,27 @@ module.exports = React.createClass({
 						'div',
 						{ className: 'col-xs-12 col-sm-8' },
 						React.createElement(
-							'h2',
-							null,
-							'Make a Post!!'
+							'a',
+							{ href: '#BL' },
+							React.createElement(
+								'h2',
+								null,
+								'Make a Post, or Buy a Book!'
+							)
 						),
 						React.createElement(
 							'p',
 							null,
-							'BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog BobLog'
+							'BobLog Parse-Products ImageBoard '
+						),
+						React.createElement(
+							'a',
+							{ href: '#BL' },
+							React.createElement(
+								'button',
+								{ className: 'exploreBtn' },
+								'Explore'
+							)
 						)
 					)
 				)
@@ -34990,12 +35036,100 @@ module.exports = React.createClass({
 		);
 	}
 });
+// <div className="row ImageRow">
+// 	<div className="col-xs-12 col-sm-4 rightFloated">
+// 		<div id="carousel-example-generic3" className="carousel slide" data-ride="carousel" data-interval="12000">
+// 			<ol className="carousel-indicators">
+// 				<li data-target="#carousel-example-generic3" data-slide-to="0" className="active"></li>
+// 				<li data-target="#carousel-example-generic3" data-slide-to="1"></li>
+// 				<li data-target="#carousel-example-generic3" data-slide-to="2"></li>
+// 			</ol>
+
+// 			<div className="carousel-inner">
+// 				<div className="item active">
+// 					<img className="computer1" src="../../images/ImageBoard.png"/>
+// 					<div className="carousel-caption">
+// 						<h3></h3>
+// 					</div>
+// 				</div>
+// 				<div className="item">
+// 					<img className="adjust" src="../../images/ImageBoard.png"/>
+// 					<div className="carousel-caption">
+// 						<h3></h3>
+// 					</div>
+// 				</div>
+// 				<div className="item">
+// 					<img src="../../images/ImageBoard.png" alt="..."/>
+// 					<div className="carousel-caption">
+// 						<h3></h3>
+// 					</div>
+// 				</div>
+// 			</div>
+
+// 			<a className="left carousel-control" href="#carousel-example-generic3" role="button" data-slide="prev">
+// 				<span className="glyphicon glyphicon-chevron-left"></span>
+// 			</a>
+// 			<a className="right carousel-control" href="#carousel-example-generic3" role="button" data-slide="next">
+// 				<span className="glyphicon glyphicon-chevron-right"></span>
+// 			</a>
+// 		</div>
+// 	</div>
+// 	<div className="col-xs-12 col-sm-8">
+// 		<a href="#BL"><h2>Ajax Image Board!!</h2></a>
+// 		<p>Ajax Image Board Ajax Image Board Ajax Image Board Ajax Image Board Ajax Image Board Ajax Image Board Ajax Image Board Ajax Image Board Ajax Image Board Ajax Image Board</p>
+// 		<a href="#IB"><button className="exploreBtn">Explore</button></a>
+// 	</div>
+// </div>
+// <div className="row ProductsRow">
+// 	<div className="col-xs-12 col-sm-4 rightFloated">
+// 		<div id="carousel-example-generic4" className="carousel slide" data-ride="carousel" data-interval="12000">
+// 			<ol className="carousel-indicators">
+// 				<li data-target="#carousel-example-generic4" data-slide-to="0" className="active"></li>
+// 				<li data-target="#carousel-example-generic4" data-slide-to="1"></li>
+// 				<li data-target="#carousel-example-generic4" data-slide-to="2"></li>
+// 			</ol>
+
+// 			<div className="carousel-inner">
+// 				<div className="item active">
+// 					<img className="computer1" src="../../images/parse-products.png"/>
+// 					<div className="carousel-caption">
+// 						<h3></h3>
+// 					</div>
+// 				</div>
+// 				<div className="item">
+// 					<img className="adjust" src="../../images/parse-products.png"/>
+// 					<div className="carousel-caption">
+// 						<h3></h3>
+// 					</div>
+// 				</div>
+// 				<div className="item">
+// 					<img src="../../images/parse-products.png" alt="..."/>
+// 					<div className="carousel-caption">
+// 						<h3></h3>
+// 					</div>
+// 				</div>
+// 			</div>
+
+// 			<a className="left carousel-control" href="#carousel-example-generic4" role="button" data-slide="prev">
+// 				<span className="glyphicon glyphicon-chevron-left"></span>
+// 			</a>
+// 			<a className="right carousel-control" href="#carousel-example-generic4" role="button" data-slide="next">
+// 				<span className="glyphicon glyphicon-chevron-right"></span>
+// 			</a>
+// 		</div>
+// 	</div>
+// 	<div className="col-xs-12 col-sm-8">
+// 		<a href="#BL"><h2>Parse-Products!!</h2></a>
+// 		<p>Parse Products Project Parse Products Project Parse Products Project Parse Products Project Parse Products Project Parse Products Project Parse Products Project Parse Products Project Parse Products Project Parse Products Project </p>
+// 		<a href="#PP"><button className="exploreBtn">Explore</button></a>
+// 	</div>
+// </div>
 // <div className="homeImg">
 // 					<img src="../../images/comp2.jpg"/>
 // 					<img src="../../images/phone.png"/>
 // 				</div>
 
-},{"backbone":1,"react":173}],182:[function(require,module,exports){
+},{"backbone":1,"react":173}],183:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -35055,7 +35189,7 @@ module.exports = React.createClass({
 
 });
 
-},{"react":173}],183:[function(require,module,exports){
+},{"react":173}],184:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -35319,7 +35453,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListModel":188,"../models/ListProductsModel":189,"../models/ProductModel":190,"./ListDropdownComponent":178,"./ProductBoxComponent":182,"backbone":1,"jquery":17,"react":173}],184:[function(require,module,exports){
+},{"../models/ListModel":189,"../models/ListProductsModel":190,"../models/ProductModel":191,"./ListDropdownComponent":179,"./ProductBoxComponent":183,"backbone":1,"jquery":17,"react":173}],185:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -35417,7 +35551,7 @@ module.exports = React.createClass({
 
 });
 
-},{"jquery":17,"react":173}],185:[function(require,module,exports){
+},{"jquery":17,"react":173}],186:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -35467,7 +35601,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"react":173}],186:[function(require,module,exports){
+},{"react":173}],187:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -35517,7 +35651,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListProductsModel":189,"../models/ProductModel":190,"jquery":17,"react":173}],187:[function(require,module,exports){
+},{"../models/ListProductsModel":190,"../models/ProductModel":191,"jquery":17,"react":173}],188:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var bootstrap = require('bootstrap');
@@ -35537,6 +35671,7 @@ var ProfileComponent = require('./components/ProfileComponent');
 var MyListsComponent = require('./components/MyListsComponent');
 var ItemDetailsComponent = require('./components/ItemDetailsComponent');
 var AddListComponent = require('./components/AddListComponent');
+var BoblogComponent = require('./components/BoblogComponent');
 
 $(document).on('ready', function () {
 	var Router = Backbone.Router.extend({
@@ -35549,12 +35684,15 @@ $(document).on('ready', function () {
 			'profile': 'profile',
 			'myLists(/:id)': 'myLists',
 			'details/:id': 'details',
-			'addList': 'addList'
+			'addList': 'addList',
+			'BL': 'BLhome'
 		},
 		home: function home() {
 			ReactDOM.render(React.createElement(PPageComponent, null), document.getElementById('main'));
+			$('#nav').hide();
 		},
 		Ghome: function Ghome() {
+			$('#nav').show();
 			$('#login').hide();
 			ReactDOM.render(React.createElement(HomeComponent, null), document.getElementById('main'));
 			ReactDOM.render(React.createElement(NavigationComponent, { router: r }), document.getElementById('nav'));
@@ -35581,6 +35719,9 @@ $(document).on('ready', function () {
 		addList: function addList() {
 			ReactDOM.render(React.createElement(AddListComponent, { router: r }), document.getElementById('main'));
 			ReactDOM.render(React.createElement(NavigationComponent, { router: r }), document.getElementById('nav'));
+		},
+		BLhome: function BLhome() {
+			ReactDOM.render(React.createElement(BoblogComponent, { router: r }), document.getElementById('main'));
 		}
 	});
 
@@ -35588,35 +35729,35 @@ $(document).on('ready', function () {
 	Backbone.history.start();
 });
 
-},{"./components/AddListComponent":174,"./components/HomeComponent":176,"./components/ItemDetailsComponent":177,"./components/MyListsComponent":179,"./components/NavigationComponent":180,"./components/PPageComponent":181,"./components/ProductSearchComponent":183,"./components/ProfileComponent":184,"backbone":1,"bootstrap":3,"jquery":17,"react":173,"react-dom":18}],188:[function(require,module,exports){
+},{"./components/AddListComponent":174,"./components/BoblogComponent":175,"./components/HomeComponent":177,"./components/ItemDetailsComponent":178,"./components/MyListsComponent":180,"./components/NavigationComponent":181,"./components/PPageComponent":182,"./components/ProductSearchComponent":184,"./components/ProfileComponent":185,"backbone":1,"bootstrap":3,"jquery":17,"react":173,"react-dom":18}],189:[function(require,module,exports){
 'use strict';
 
 module.exports = Parse.Object.extend({
   className: 'lists'
 });
 
-},{}],189:[function(require,module,exports){
+},{}],190:[function(require,module,exports){
 'use strict';
 
 module.exports = Parse.Object.extend({
   className: 'ListProducts'
 });
 
-},{}],190:[function(require,module,exports){
+},{}],191:[function(require,module,exports){
 'use strict';
 
 module.exports = Parse.Object.extend({
   className: 'products'
 });
 
-},{}],191:[function(require,module,exports){
+},{}],192:[function(require,module,exports){
 'use strict';
 
 module.exports = Parse.Object.extend({
   className: 'User'
 });
 
-},{}]},{},[187])
+},{}]},{},[188])
 
 
 //# sourceMappingURL=bundle.js.map
