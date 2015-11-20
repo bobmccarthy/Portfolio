@@ -18,6 +18,7 @@ var MyListsComponent = require('./components/MyListsComponent');
 var ItemDetailsComponent = require('./components/ItemDetailsComponent');
 var AddListComponent = require('./components/AddListComponent');
 var BoblogComponent = require('./components/BoblogComponent');
+var BoardTileComponent = require('./components/BoardTileComponent');
 
 
 $(document).on('ready', function(){
@@ -32,7 +33,8 @@ $(document).on('ready', function(){
 			'myLists(/:id)': 'myLists',
 			'details/:id': 'details',
 			'addList': 'addList',
-			'BL': 'BLhome'
+			'BL': 'BLhome',
+			'ttt': 'ttt'
 		},
 		home: function(){
 			ReactDOM.render(<PPageComponent />,
@@ -88,6 +90,10 @@ $(document).on('ready', function(){
 		},
 		BLhome: function() {
 			ReactDOM.render(<BoblogComponent router={r} />,
+			document.getElementById('main'));
+		},
+		ttt: function(){
+			ReactDOM.render(<BoardTileComponent router={r} />,
 			document.getElementById('main'));
 		}
 	});

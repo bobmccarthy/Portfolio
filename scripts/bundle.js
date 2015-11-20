@@ -34129,7 +34129,247 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListModel":189,"react":173}],175:[function(require,module,exports){
+},{"../models/ListModel":190,"react":173}],175:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	getInitialState: function getInitialState() {
+		return {
+			winner: false,
+			boardArray: ['', '', '', '', '', '', '', '', ''],
+			turn: null,
+			playerOne: '',
+			playerTwo: '',
+			plays: 0
+		};
+	},
+	render: function render() {
+		var _this = this;
+
+		console.log(this.state.plays);
+		if (this.state.turn) {
+			var playerTurn = React.createElement(
+				'div',
+				{ id: 'directions' },
+				this.state.turn,
+				'`s Turn!!!'
+			);
+		} else {
+			var playerTurn = React.createElement(
+				'div',
+				{ id: 'directions' },
+				'Enter Player Names, and Click PLAY!'
+			);
+		}
+
+		var counter = -1;
+		var allSpaces = this.state.boardArray.map(function (tile) {
+			counter = counter + 1;
+			return React.createElement(
+				'div',
+				{ onClick: _this.choice, id: 'a' + counter, key: counter, className: 'tile' },
+				React.createElement(
+					'span',
+					null,
+					tile
+				)
+			);
+		});
+		var names = React.createElement(
+			'div',
+			{ className: 'vs' },
+			this.state.playerOne,
+			' vs. ',
+			this.state.playerTwo
+		);
+		if (this.state.winner) {
+			var playerTurn = React.createElement(
+				'div',
+				{ id: 'winner' },
+				this.state.turn,
+				' Wins! Yay! You did it!'
+			);
+		}
+		return React.createElement(
+			'div',
+			null,
+			React.createElement(
+				'div',
+				{ className: 'title' },
+				React.createElement(
+					'h1',
+					null,
+					'Tic-Tac-Bob'
+				),
+				React.createElement('input', { onKeyUp: this.setPlayer1, ref: 'player1', placeholder: 'Type Player 1 Name' }),
+				React.createElement('input', { onKeyUp: this.setPlayer2, ref: 'player2', placeholder: 'Type Player 2 Name' })
+			),
+			React.createElement(
+				'div',
+				{ className: 'action' },
+				React.createElement(
+					'button',
+					{ onClick: this.play },
+					'Play!'
+				),
+				names,
+				React.createElement(
+					'button',
+					{ onClick: this.restart },
+					'Restart'
+				)
+			),
+			React.createElement(
+				'div',
+				{ className: 'instructions' },
+				playerTurn
+			),
+			React.createElement(
+				'div',
+				{ id: 'board-container' },
+				React.createElement(
+					'div',
+					{ className: 'board' },
+					allSpaces
+				)
+			),
+			React.createElement(
+				'footer',
+				{ className: 'footer' },
+				React.createElement(
+					'div',
+					{ className: 'select' },
+					React.createElement(
+						'select',
+						{ onChange: this.background, ref: 'select' },
+						React.createElement(
+							'option',
+							{ value: '1' },
+							'Meadow +'
+						),
+						React.createElement(
+							'option',
+							{ value: '2' },
+							'Fall Colors +'
+						),
+						React.createElement(
+							'option',
+							{ value: '3' },
+							'By the Lake +'
+						)
+					)
+				),
+				React.createElement(
+					'div',
+					{ className: 'changeB' },
+					'Change Background:'
+				)
+			)
+		);
+	},
+	setPlayer1: function setPlayer1() {
+		this.setState({
+			playerOne: this.refs.player1.value,
+			turn: null,
+			boardArray: ['', '', '', '', '', '', '', '', '']
+		});
+	},
+	setPlayer2: function setPlayer2() {
+		this.setState({
+			playerTwo: this.refs.player2.value,
+			turn: null,
+			boardArray: ['', '', '', '', '', '', '', '', '']
+
+		});
+	},
+	play: function play() {
+		this.setState({
+			winner: false,
+			boardArray: ['', '', '', '', '', '', '', '', ''],
+			turn: this.state.playerOne
+		});
+	},
+	restart: function restart() {
+		this.setState({
+			winner: false,
+			boardArray: ['', '', '', '', '', '', '', '', ''],
+			turn: this.state.playerOne,
+			plays: 0
+		});
+	},
+	choice: function choice(i) {
+		// console.log(i.target.id[1]);
+		if (this.state.winner) {
+			console.log('winner');
+		} else {
+			var target = i.target.id[1];
+			var array = this.state.boardArray;
+			if (array[target] !== '') {
+				console.log('try again');
+			} else {
+				if (this.state.turn == this.state.playerOne) {
+					array[target] = 'x';
+					if (array[0] == 'x' && array[1] == 'x' && array[2] == 'x' || array[3] == 'x' && array[4] == 'x' && array[5] == 'x' || array[6] == 'x' && array[7] == 'x' && array[8] == 'x' || array[0] == 'x' && array[3] == 'x' && array[6] == 'x' || array[1] == 'x' && array[4] == 'x' && array[7] == 'x' || array[2] == 'x' && array[5] == 'x' && array[8] == 'x' || array[0] == 'x' && array[4] == 'x' && array[8] == 'x' || array[2] == 'x' && array[4] == 'x' && array[6] == 'x') {
+						this.setState({
+							winner: true
+						});
+					} else {
+						this.setState({
+							boardArray: array,
+							turn: this.state.playerTwo,
+							plays: this.state.plays + 1
+						});
+					}
+					if (this.state.plays == 8) {
+						this.setState({
+							winner: true,
+							turn: 'Cats Game'
+						});
+					}
+				} else if (this.state.turn == this.state.playerTwo) {
+					array[target] = 'o';
+					if (array[0] == 'o' && array[1] == 'o' && array[2] == 'o' || array[3] == 'o' && array[4] == 'o' && array[5] == 'o' || array[6] == 'o' && array[7] == 'o' && array[8] == 'o' || array[0] == 'o' && array[3] == 'o' && array[6] == 'o' || array[1] == 'o' && array[4] == 'o' && array[7] == 'o' || array[2] == 'o' && array[5] == 'o' && array[8] == 'o' || array[0] == 'o' && array[4] == 'o' && array[8] == 'o' || array[2] == 'o' && array[4] == 'o' && array[6] == 'o') {
+						this.setState({
+							winner: true
+						});
+					} else {
+						this.setState({
+							boardArray: array,
+							turn: this.state.playerOne,
+							plays: this.state.plays + 1
+						});
+					}
+					if (this.state.plays == 8) {
+						this.setState({
+							winner: true,
+							turn: 'Cats Game'
+						});
+					}
+				}
+			}
+		}
+	},
+	background: function background() {
+		if (this.refs.select.value == 1) {
+			document.getElementById('board-container').style.backgroundImage = "url('../images/background3.jpg')";
+			//http://www.wallpapereast.com/static/images/Free-Wallpaper-Nature-Scenes_Gg92QQ8.jpg
+		}
+		if (this.refs.select.value == 2) {
+			document.getElementById('board-container').style.backgroundImage = "url('../images/background2.jpg')";
+			//http://www.wallpapereast.com/static/images/6801692-lovely-nature-wallpaper.jpg
+		}
+		if (this.refs.select.value == 3) {
+			document.getElementById('board-container').style.backgroundImage = "url('../images/background1.jpg')";
+			//http://www.wallpapereast.com/static/images/nature-wallpaper-1080x1920.jpg
+		}
+	}
+});
+
+},{"react":173}],176:[function(require,module,exports){
 //This is the navigation component. The router has been passed in as a property.
 'use strict';
 
@@ -34148,7 +34388,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"backbone":1,"react":173}],176:[function(require,module,exports){
+},{"backbone":1,"react":173}],177:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -34233,7 +34473,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListProductsModel":190,"../models/ProductModel":191,"jquery":17,"react":173}],177:[function(require,module,exports){
+},{"../models/ListProductsModel":191,"../models/ProductModel":192,"jquery":17,"react":173}],178:[function(require,module,exports){
 //This is the navigation component. The router has been passed in as a property.
 'use strict';
 
@@ -34347,7 +34587,7 @@ module.exports = React.createClass({
 // 					<img src="../../images/phone.png"/>
 // 				</div>
 
-},{"backbone":1,"react":173}],178:[function(require,module,exports){
+},{"backbone":1,"react":173}],179:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -34387,7 +34627,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ProductModel":191,"./SingleProductBoxComponent":186,"react":173}],179:[function(require,module,exports){
+},{"../models/ProductModel":192,"./SingleProductBoxComponent":187,"react":173}],180:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -34439,7 +34679,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListModel":189,"backbone":1,"jquery":17,"react":173}],180:[function(require,module,exports){
+},{"../models/ListModel":190,"backbone":1,"jquery":17,"react":173}],181:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -34557,7 +34797,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListModel":189,"../models/ProductModel":191,"../models/UserModel":192,"./EachProductComponent":176,"./TotalPriceComponent":187,"backbone":1,"backbone/node_modules/underscore":2,"react":173}],181:[function(require,module,exports){
+},{"../models/ListModel":190,"../models/ProductModel":192,"../models/UserModel":193,"./EachProductComponent":177,"./TotalPriceComponent":188,"backbone":1,"backbone/node_modules/underscore":2,"react":173}],182:[function(require,module,exports){
 //This is the navigation component. The router has been passed in as a property.
 'use strict';
 
@@ -34717,7 +34957,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListModel":189,"backbone":1,"bootstrap":3,"react":173}],182:[function(require,module,exports){
+},{"../models/ListModel":190,"backbone":1,"bootstrap":3,"react":173}],183:[function(require,module,exports){
 //This is the navigation component. The router has been passed in as a property.
 'use strict';
 
@@ -34981,6 +35221,96 @@ module.exports = React.createClass({
 							)
 						)
 					)
+				),
+				React.createElement(
+					'div',
+					{ className: 'row TicRow' },
+					React.createElement(
+						'div',
+						{ className: 'col-xs-12 col-sm-4' },
+						React.createElement(
+							'div',
+							{ id: 'carousel-example-generic4', className: 'carousel slide', 'data-ride': 'carousel', 'data-interval': '10000' },
+							React.createElement(
+								'ol',
+								{ className: 'carousel-indicators' },
+								React.createElement('li', { 'data-target': '#carousel-example-generic4', 'data-slide-to': '0', className: 'active' }),
+								React.createElement('li', { 'data-target': '#carousel-example-generic4', 'data-slide-to': '1' }),
+								React.createElement('li', { 'data-target': '#carousel-example-generic4', 'data-slide-to': '2' })
+							),
+							React.createElement(
+								'div',
+								{ className: 'carousel-inner' },
+								React.createElement(
+									'div',
+									{ className: 'item active' },
+									React.createElement('img', { className: 'computer1', src: '../../images/tic1.png' }),
+									React.createElement(
+										'div',
+										{ className: 'carousel-caption' },
+										React.createElement('h3', null)
+									)
+								),
+								React.createElement(
+									'div',
+									{ className: 'item' },
+									React.createElement('img', { className: 'adjust', src: '../../images/tic2.png' }),
+									React.createElement(
+										'div',
+										{ className: 'carousel-caption' },
+										React.createElement('h3', null)
+									)
+								),
+								React.createElement(
+									'div',
+									{ className: 'item' },
+									React.createElement('img', { src: '../../images/tic3.png', alt: '...' }),
+									React.createElement(
+										'div',
+										{ className: 'carousel-caption' },
+										React.createElement('h3', null)
+									)
+								)
+							),
+							React.createElement(
+								'a',
+								{ className: 'left carousel-control', href: '#carousel-example-generic4', role: 'button', 'data-slide': 'prev' },
+								React.createElement('span', { className: 'glyphicon glyphicon-chevron-left' })
+							),
+							React.createElement(
+								'a',
+								{ className: 'right carousel-control', href: '#carousel-example-generic4', role: 'button', 'data-slide': 'next' },
+								React.createElement('span', { className: 'glyphicon glyphicon-chevron-right' })
+							)
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'col-xs-12 col-sm-8' },
+						React.createElement(
+							'a',
+							{ href: '#ttt' },
+							React.createElement(
+								'h2',
+								null,
+								'Lets Play!'
+							)
+						),
+						React.createElement(
+							'p',
+							null,
+							'Take a look at my latest creation. Built with HTML, CSS, JavaScript, and React.'
+						),
+						React.createElement(
+							'a',
+							{ href: '#ttt' },
+							React.createElement(
+								'button',
+								{ className: 'exploreBtn' },
+								'Explore'
+							)
+						)
+					)
 				)
 			),
 			React.createElement(
@@ -35129,7 +35459,7 @@ module.exports = React.createClass({
 // 					<img src="../../images/phone.png"/>
 // 				</div>
 
-},{"backbone":1,"react":173}],183:[function(require,module,exports){
+},{"backbone":1,"react":173}],184:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -35189,7 +35519,7 @@ module.exports = React.createClass({
 
 });
 
-},{"react":173}],184:[function(require,module,exports){
+},{"react":173}],185:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -35453,7 +35783,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListModel":189,"../models/ListProductsModel":190,"../models/ProductModel":191,"./ListDropdownComponent":179,"./ProductBoxComponent":183,"backbone":1,"jquery":17,"react":173}],185:[function(require,module,exports){
+},{"../models/ListModel":190,"../models/ListProductsModel":191,"../models/ProductModel":192,"./ListDropdownComponent":180,"./ProductBoxComponent":184,"backbone":1,"jquery":17,"react":173}],186:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -35551,7 +35881,7 @@ module.exports = React.createClass({
 
 });
 
-},{"jquery":17,"react":173}],186:[function(require,module,exports){
+},{"jquery":17,"react":173}],187:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -35601,7 +35931,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"react":173}],187:[function(require,module,exports){
+},{"react":173}],188:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -35651,7 +35981,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListProductsModel":190,"../models/ProductModel":191,"jquery":17,"react":173}],188:[function(require,module,exports){
+},{"../models/ListProductsModel":191,"../models/ProductModel":192,"jquery":17,"react":173}],189:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var bootstrap = require('bootstrap');
@@ -35672,6 +36002,7 @@ var MyListsComponent = require('./components/MyListsComponent');
 var ItemDetailsComponent = require('./components/ItemDetailsComponent');
 var AddListComponent = require('./components/AddListComponent');
 var BoblogComponent = require('./components/BoblogComponent');
+var BoardTileComponent = require('./components/BoardTileComponent');
 
 $(document).on('ready', function () {
 	var Router = Backbone.Router.extend({
@@ -35685,7 +36016,8 @@ $(document).on('ready', function () {
 			'myLists(/:id)': 'myLists',
 			'details/:id': 'details',
 			'addList': 'addList',
-			'BL': 'BLhome'
+			'BL': 'BLhome',
+			'ttt': 'ttt'
 		},
 		home: function home() {
 			ReactDOM.render(React.createElement(PPageComponent, null), document.getElementById('main'));
@@ -35722,6 +36054,9 @@ $(document).on('ready', function () {
 		},
 		BLhome: function BLhome() {
 			ReactDOM.render(React.createElement(BoblogComponent, { router: r }), document.getElementById('main'));
+		},
+		ttt: function ttt() {
+			ReactDOM.render(React.createElement(BoardTileComponent, { router: r }), document.getElementById('main'));
 		}
 	});
 
@@ -35729,35 +36064,35 @@ $(document).on('ready', function () {
 	Backbone.history.start();
 });
 
-},{"./components/AddListComponent":174,"./components/BoblogComponent":175,"./components/HomeComponent":177,"./components/ItemDetailsComponent":178,"./components/MyListsComponent":180,"./components/NavigationComponent":181,"./components/PPageComponent":182,"./components/ProductSearchComponent":184,"./components/ProfileComponent":185,"backbone":1,"bootstrap":3,"jquery":17,"react":173,"react-dom":18}],189:[function(require,module,exports){
+},{"./components/AddListComponent":174,"./components/BoardTileComponent":175,"./components/BoblogComponent":176,"./components/HomeComponent":178,"./components/ItemDetailsComponent":179,"./components/MyListsComponent":181,"./components/NavigationComponent":182,"./components/PPageComponent":183,"./components/ProductSearchComponent":185,"./components/ProfileComponent":186,"backbone":1,"bootstrap":3,"jquery":17,"react":173,"react-dom":18}],190:[function(require,module,exports){
 'use strict';
 
 module.exports = Parse.Object.extend({
   className: 'lists'
 });
 
-},{}],190:[function(require,module,exports){
+},{}],191:[function(require,module,exports){
 'use strict';
 
 module.exports = Parse.Object.extend({
   className: 'ListProducts'
 });
 
-},{}],191:[function(require,module,exports){
+},{}],192:[function(require,module,exports){
 'use strict';
 
 module.exports = Parse.Object.extend({
   className: 'products'
 });
 
-},{}],192:[function(require,module,exports){
+},{}],193:[function(require,module,exports){
 'use strict';
 
 module.exports = Parse.Object.extend({
   className: 'User'
 });
 
-},{}]},{},[188])
+},{}]},{},[189])
 
 
 //# sourceMappingURL=bundle.js.map

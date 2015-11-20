@@ -121,7 +121,51 @@ module.exports = React.createClass({
 							<a href="#BL"><button className="exploreBtn">Explore</button></a>
 						</div>
 					</div>
-					
+					<div className="row TicRow">
+						<div className="col-xs-12 col-sm-4">
+							<div id="carousel-example-generic4" className="carousel slide" data-ride="carousel" data-interval="10000">
+								<ol className="carousel-indicators">
+									<li data-target="#carousel-example-generic4" data-slide-to="0" className="active"></li>
+									<li data-target="#carousel-example-generic4" data-slide-to="1"></li>
+									<li data-target="#carousel-example-generic4" data-slide-to="2"></li>
+								</ol>
+
+								<div className="carousel-inner">
+									<div className="item active">
+										<img className="computer1" src="../../images/tic1.png"/>
+										<div className="carousel-caption">
+											<h3></h3>
+										</div>
+									</div>
+									<div className="item">
+										<img className="adjust" src="../../images/tic2.png"/>
+										<div className="carousel-caption">
+											<h3></h3>
+										</div>
+									</div>
+									<div className="item">
+										<img src="../../images/tic3.png" alt="..."/>
+										<div className="carousel-caption">
+											<h3></h3>
+										</div>
+									</div>
+								</div>
+
+								
+								<a className="left carousel-control" href="#carousel-example-generic4" role="button" data-slide="prev">
+									<span className="glyphicon glyphicon-chevron-left"></span>
+								</a>
+								<a className="right carousel-control" href="#carousel-example-generic4" role="button" data-slide="next">
+									<span className="glyphicon glyphicon-chevron-right"></span>
+								</a>
+							</div> 
+						</div>
+						<div className="col-xs-12 col-sm-8">
+							<a href="#ttt"><h2>Lets Play!</h2></a>
+							<p>Take a look at my latest creation. Built with HTML, CSS, JavaScript, and React.</p>
+							<a href="#ttt"><button className="exploreBtn">Explore</button></a>
+						</div>
+					</div>
 				</div>
 				<div className="container-fluid footerP">
 					<div className="row">
