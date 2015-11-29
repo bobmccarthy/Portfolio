@@ -19,7 +19,10 @@ var ItemDetailsComponent = require('./components/ItemDetailsComponent');
 var AddListComponent = require('./components/AddListComponent');
 var BoblogComponent = require('./components/BoblogComponent');
 var BoardTileComponent = require('./components/BoardTileComponent');
-
+Parse.User.logIn(
+	'Bob',
+	'1234'
+);
 
 $(document).on('ready', function(){
 	var Router = Backbone.Router.extend({
@@ -37,6 +40,10 @@ $(document).on('ready', function(){
 			'ttt': 'ttt'
 		},
 		home: function(){
+			Parse.User.logIn(
+				'Bob',
+				'1234'
+			);
 			ReactDOM.render(<PPageComponent />,
 			document.getElementById('main'));
 			$('#nav').hide();
@@ -49,6 +56,7 @@ $(document).on('ready', function(){
 			ReactDOM.render(
 			<NavigationComponent router={r} />,
 			document.getElementById('nav'));
+			$('body').scrollTop(0);
 		},
 		login: function(){
 			$('#login').toggle('slow');
@@ -95,6 +103,7 @@ $(document).on('ready', function(){
 		ttt: function(){
 			ReactDOM.render(<BoardTileComponent router={r} />,
 			document.getElementById('main'));
+			$('body').scrollTop(0);
 		}
 	});
 

@@ -12,6 +12,7 @@ module.exports = React.createClass({
 		}
 	},
 	render: function() {
+		
 		console.log(this.state.plays);
 		if (this.state.turn){
 			var playerTurn=(<div id="directions">{this.state.turn}`s Turn!!!</div>);
@@ -33,7 +34,7 @@ module.exports = React.createClass({
 			var playerTurn = (<div id="winner">{this.state.turn} Wins! Yay! You did it!</div>);
 		}
 		return(
-			<div>
+			<div className="tttPage">
 				<div className="title">
 					<h1>Tic-Tac-Bob</h1>
 					<input onKeyUp={this.setPlayer1} ref="player1" placeholder="Type Player 1 Name"/>
@@ -54,6 +55,7 @@ module.exports = React.createClass({
 				</div>
 				
 				<footer className="footer">
+					<button onClick={this.back}>Back to Portfolio</button>
 					<div className="select">
 						<select onChange={this.background} ref="select">
 							<option value="1">Meadow +</option>
@@ -61,7 +63,7 @@ module.exports = React.createClass({
 							<option value="3">By the Lake +</option>
 						</select>
 					</div>
-					<div className="changeB">Change Background:</div>
+					<div className="changeB">Background:</div>
 				</footer>
 			</div>
 		)
@@ -192,6 +194,9 @@ module.exports = React.createClass({
 			document.getElementById('board-container').style.backgroundImage="url('../images/background1.jpg')";
 			//http://www.wallpapereast.com/static/images/nature-wallpaper-1080x1920.jpg
 		}
+	},
+	back: function(){
+		this.props.router.navigate('#', {trigger: true});
 	}
 });
 

@@ -8,7 +8,7 @@ module.exports = React.createClass({
 			<div>
 				<div id="hero">
 					<div className="heroText">
-						<h1>With Tech, We can Change the World!</h1>
+						<h1>In Tech, We can Change the World!</h1>
 						<h2>Bob McCarthy</h2>
 						<div className="lineBreak"></div>
 						<h4>Front End Developer</h4>
@@ -22,13 +22,13 @@ module.exports = React.createClass({
 					</div>
 					<div className="row aboutMe">
 						<div className="col-xs-12 col-md-4">
-							<p>Drinking vinegar ugh chambray deep v. Fanny pack brunch schlitz, disrupt narwhal hoodie butcher portland. Godard jean shorts semiotics raw denim. Selfies skateboard street art before they sold out pop-up echo park next level, taxidermy photo booth try-hard drinking vinegar direct trade. Listicle meh PBR&B, photo booth banjo chambray food truck hashtag YOLO</p>
+							<p>Recent graduate of The Iron Yard, Austin. Voted `Javascript Warloard`, I have just found my love for coding. As you explore my portfolio, click as many buttons as you can. This site is a representation of some of the things I learned over the Front-end Engineering course I took. Have fun and enjoy!</p>
 						</div>
 						<div className="col-xs-12 col-md-4">
-							<p>Drinking vinegar ugh chambray deep v. Fanny pack brunch schlitz, disrupt narwhal hoodie butcher portland. Godard jean shorts semiotics raw denim. Selfies skateboard street art before they sold out pop-up echo park next level, taxidermy photo booth try-hard drinking vinegar direct trade. Listicle meh PBR&B, photo booth banjo chambray food truck hashtag YOLO</p>
+							<p>I used React to build this site. Most of my HTML is sepereated into special components that only get shown on the page in specific circumstances. I am familiar with CSS, and prefer to use a transpiler so I can style using SASS, and have the page read it as CSS. I enjoy using the Bootstrap grid system, but pretty much can`t stand their default styling. So, on this site I used some of the Materialize CSS as well. JavaScript has become my forte. I am the only person I know who <i>likes</i> whiteboarding.</p>
 						</div>
 						<div className="col-xs-12 col-md-4">
-							<p>Drinking vinegar ugh chambray deep v. Fanny pack brunch schlitz, disrupt narwhal hoodie butcher portland. Godard jean shorts semiotics raw denim. Selfies skateboard street art before they sold out pop-up echo park next level, taxidermy photo booth try-hard drinking vinegar direct trade. Listicle meh PBR&B, photo booth banjo chambray food truck hashtag YOLO</p>
+							<p>You`ll often see me with an instrument in my hand. I have a bad, or good depending on how you look at it, habit of trying to learn every instrument I can get my hands on. The outdoors intrigue me. Hiking, swimming, and camping are a must-do for me to keep my sanity. </p>
 						</div>
 					</div>
 					<div className="row GistRow">
@@ -72,7 +72,7 @@ module.exports = React.createClass({
 						</div>
 						<div className="col-xs-12 col-sm-8">
 							<a href="#Gist"><h2>You Get the Gist!</h2></a>
-							<p>All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST </p>
+							<p>Introducing my next greatest idea, Gist! I was working the Guest Service desk at Whole Foods recently and someone’s really nice grandmother came up to me and said: `My doctor told me I have to eat Gluten Free.` Me: `Yes ma’am, how can I help?` Her: `I am so hungry!` This sparked my idea for an app that would allow people to see what groceries are available for their unique diet at the store of their choice. Also built in is a way to make quick grocery lists and save them for future use.</p>
 							<a href="#Gist"><button className="exploreBtn">Explore</button></a>
 						</div>
 					</div>

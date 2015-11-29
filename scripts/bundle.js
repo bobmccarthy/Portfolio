@@ -34196,7 +34196,7 @@ module.exports = React.createClass({
 		}
 		return React.createElement(
 			'div',
-			null,
+			{ className: 'tttPage' },
 			React.createElement(
 				'div',
 				{ className: 'title' },
@@ -34241,6 +34241,11 @@ module.exports = React.createClass({
 				'footer',
 				{ className: 'footer' },
 				React.createElement(
+					'button',
+					{ onClick: this.back },
+					'Back to Portfolio'
+				),
+				React.createElement(
 					'div',
 					{ className: 'select' },
 					React.createElement(
@@ -34266,7 +34271,7 @@ module.exports = React.createClass({
 				React.createElement(
 					'div',
 					{ className: 'changeB' },
-					'Change Background:'
+					'Background:'
 				)
 			)
 		);
@@ -34366,6 +34371,9 @@ module.exports = React.createClass({
 			document.getElementById('board-container').style.backgroundImage = "url('../images/background1.jpg')";
 			//http://www.wallpapereast.com/static/images/nature-wallpaper-1080x1920.jpg
 		}
+	},
+	back: function back() {
+		this.props.router.navigate('#', { trigger: true });
 	}
 });
 
@@ -34980,7 +34988,7 @@ module.exports = React.createClass({
 					React.createElement(
 						'h1',
 						null,
-						'With Tech, We can Change the World!'
+						'In Tech, We can Change the World!'
 					),
 					React.createElement(
 						'h2',
@@ -35020,7 +35028,7 @@ module.exports = React.createClass({
 						React.createElement(
 							'p',
 							null,
-							'Drinking vinegar ugh chambray deep v. Fanny pack brunch schlitz, disrupt narwhal hoodie butcher portland. Godard jean shorts semiotics raw denim. Selfies skateboard street art before they sold out pop-up echo park next level, taxidermy photo booth try-hard drinking vinegar direct trade. Listicle meh PBR&B, photo booth banjo chambray food truck hashtag YOLO'
+							'Recent graduate of The Iron Yard, Austin. Voted `Javascript Warloard`, I have just found my love for coding. As you explore my portfolio, click as many buttons as you can. This site is a representation of some of the things I learned over the Front-end Engineering course I took. Have fun and enjoy!'
 						)
 					),
 					React.createElement(
@@ -35029,7 +35037,13 @@ module.exports = React.createClass({
 						React.createElement(
 							'p',
 							null,
-							'Drinking vinegar ugh chambray deep v. Fanny pack brunch schlitz, disrupt narwhal hoodie butcher portland. Godard jean shorts semiotics raw denim. Selfies skateboard street art before they sold out pop-up echo park next level, taxidermy photo booth try-hard drinking vinegar direct trade. Listicle meh PBR&B, photo booth banjo chambray food truck hashtag YOLO'
+							'I used React to build this site. Most of my HTML is sepereated into special components that only get shown on the page in specific circumstances. I am familiar with CSS, and prefer to use a transpiler so I can style using SASS, and have the page read it as CSS. I enjoy using the Bootstrap grid system, but pretty much can`t stand their default styling. So, on this site I used some of the Materialize CSS as well. JavaScript has become my forte. I am the only person I know who ',
+							React.createElement(
+								'i',
+								null,
+								'likes'
+							),
+							' whiteboarding.'
 						)
 					),
 					React.createElement(
@@ -35038,7 +35052,7 @@ module.exports = React.createClass({
 						React.createElement(
 							'p',
 							null,
-							'Drinking vinegar ugh chambray deep v. Fanny pack brunch schlitz, disrupt narwhal hoodie butcher portland. Godard jean shorts semiotics raw denim. Selfies skateboard street art before they sold out pop-up echo park next level, taxidermy photo booth try-hard drinking vinegar direct trade. Listicle meh PBR&B, photo booth banjo chambray food truck hashtag YOLO'
+							'You`ll often see me with an instrument in my hand. I have a bad, or good depending on how you look at it, habit of trying to learn every instrument I can get my hands on. The outdoors intrigue me. Hiking, swimming, and camping are a must-do for me to keep my sanity. '
 						)
 					)
 				),
@@ -35119,7 +35133,7 @@ module.exports = React.createClass({
 						React.createElement(
 							'p',
 							null,
-							'All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST All About GIST '
+							'Introducing my next greatest idea, Gist! I was working the Guest Service desk at Whole Foods recently and someone’s really nice grandmother came up to me and said: `My doctor told me I have to eat Gluten Free.` Me: `Yes ma’am, how can I help?` Her: `I am so hungry!` This sparked my idea for an app that would allow people to see what groceries are available for their unique diet at the store of their choice. Also built in is a way to make quick grocery lists and save them for future use.'
 						),
 						React.createElement(
 							'a',
@@ -36003,6 +36017,7 @@ var ItemDetailsComponent = require('./components/ItemDetailsComponent');
 var AddListComponent = require('./components/AddListComponent');
 var BoblogComponent = require('./components/BoblogComponent');
 var BoardTileComponent = require('./components/BoardTileComponent');
+Parse.User.logIn('Bob', '1234');
 
 $(document).on('ready', function () {
 	var Router = Backbone.Router.extend({
@@ -36020,6 +36035,7 @@ $(document).on('ready', function () {
 			'ttt': 'ttt'
 		},
 		home: function home() {
+			Parse.User.logIn('Bob', '1234');
 			ReactDOM.render(React.createElement(PPageComponent, null), document.getElementById('main'));
 			$('#nav').hide();
 		},
@@ -36028,6 +36044,7 @@ $(document).on('ready', function () {
 			$('#login').hide();
 			ReactDOM.render(React.createElement(HomeComponent, null), document.getElementById('main'));
 			ReactDOM.render(React.createElement(NavigationComponent, { router: r }), document.getElementById('nav'));
+			$('body').scrollTop(0);
 		},
 		login: function login() {
 			$('#login').toggle('slow');
@@ -36057,6 +36074,7 @@ $(document).on('ready', function () {
 		},
 		ttt: function ttt() {
 			ReactDOM.render(React.createElement(BoardTileComponent, { router: r }), document.getElementById('main'));
+			$('body').scrollTop(0);
 		}
 	});
 

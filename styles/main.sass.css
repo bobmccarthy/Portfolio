@@ -3,6 +3,9 @@ body {
   margin-top: 2.8em;
   background-color: #ECECEC; }
 
+#nav {
+  margin-bottom: 2.5em; }
+
 #hero {
   background-image: url("../images/bluebonnets.jpg");
   margin-top: -2.8em;
@@ -76,7 +79,7 @@ body {
 
 .item img {
   margin: 0 auto;
-  max-height: 50em; }
+  max-height: 15em; }
 
 .footerP {
   padding: 1em;
@@ -177,11 +180,16 @@ body {
 .changeB {
   float: right;
   font-size: 1.5em;
-  margin: 1em; }
+  margin: 1em 0; }
 
 .footer {
   background-color: #FDD800;
   overflow: hidden; }
+  .footer button {
+    font-size: 1em;
+    background-color: white;
+    border: 3px solid black;
+    margin: 1em; }
 
 #a0, #a1, #a2, #a3, #a4, #a5 {
   border-bottom: 3px solid #A4E402; }
