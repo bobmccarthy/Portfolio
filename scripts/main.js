@@ -17,7 +17,7 @@ var ProfileComponent = require('./components/ProfileComponent');
 var MyListsComponent = require('./components/MyListsComponent');
 var ItemDetailsComponent = require('./components/ItemDetailsComponent');
 var AddListComponent = require('./components/AddListComponent');
-var BoblogComponent = require('./components/BoblogComponent');
+var IronQuizzesComponent = require('./components/IronQuizzesComponent');
 var BoardTileComponent = require('./components/BoardTileComponent');
 
 
@@ -33,7 +33,7 @@ $(document).on('ready', function(){
 			'myLists(/:id)': 'myLists',
 			'details/:id': 'details',
 			'addList': 'addList',
-			'BL': 'BLhome',
+			'IQ': 'IQhome',
 			'ttt': 'ttt'
 		},
 		home: function(){
@@ -92,8 +92,8 @@ $(document).on('ready', function(){
 			<NavigationComponent router={r} />,
 			document.getElementById('nav'));
 		},
-		BLhome: function() {
-			ReactDOM.render(<BoblogComponent router={r} />,
+		IQhome: function() {
+			ReactDOM.render(<IronQuizzesComponent router={r} />,
 			document.getElementById('main'));
 		},
 		ttt: function(){

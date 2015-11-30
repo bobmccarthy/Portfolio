@@ -78,12 +78,14 @@ body {
     background-color: white; }
 
 .item img {
-  margin: 0 auto;
-  max-height: 15em; }
+  margin: auto auto; }
 
 .footerP {
   padding: 1em;
   text-align: center; }
+
+.uc {
+  width: 100%; }
 
 body {
   margin: 0; }
@@ -208,10 +210,12 @@ body {
   height: 100%; }
   #login .loginWhite {
     background-color: white;
+    padding: 1em;
     border: 3px solid #F79227; }
     #login .loginWhite .loginForm input {
       border-style: none;
-      font-size: 2em; }
+      font-size: 2em;
+      width: 100%; }
     #login .loginWhite .loginForm button {
       width: 40%;
       height: 4em;

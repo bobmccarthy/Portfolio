@@ -34378,25 +34378,6 @@ module.exports = React.createClass({
 });
 
 },{"react":173}],176:[function(require,module,exports){
-//This is the navigation component. The router has been passed in as a property.
-'use strict';
-
-var React = require('react');
-var Backbone = require('backbone');
-
-module.exports = React.createClass({
-	displayName: 'exports',
-
-	render: function render() {
-		return React.createElement(
-			'h1',
-			null,
-			'All About Boblog'
-		);
-	}
-});
-
-},{"backbone":1,"react":173}],177:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -34481,7 +34462,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListProductsModel":191,"../models/ProductModel":192,"jquery":17,"react":173}],178:[function(require,module,exports){
+},{"../models/ListProductsModel":191,"../models/ProductModel":192,"jquery":17,"react":173}],177:[function(require,module,exports){
 //This is the navigation component. The router has been passed in as a property.
 'use strict';
 
@@ -34594,6 +34575,21 @@ module.exports = React.createClass({
 // 					<img src="../../images/comp2.jpg"/>
 // 					<img src="../../images/phone.png"/>
 // 				</div>
+
+},{"backbone":1,"react":173}],178:[function(require,module,exports){
+//This is the navigation component. The router has been passed in as a property.
+'use strict';
+
+var React = require('react');
+var Backbone = require('backbone');
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	render: function render() {
+		return React.createElement('img', { className: 'uc', src: '../../images/underconstruction.jpg' });
+	}
+});
 
 },{"backbone":1,"react":173}],179:[function(require,module,exports){
 'use strict';
@@ -34805,7 +34801,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListModel":190,"../models/ProductModel":192,"../models/UserModel":193,"./EachProductComponent":177,"./TotalPriceComponent":188,"backbone":1,"backbone/node_modules/underscore":2,"react":173}],182:[function(require,module,exports){
+},{"../models/ListModel":190,"../models/ProductModel":192,"../models/UserModel":193,"./EachProductComponent":176,"./TotalPriceComponent":188,"backbone":1,"backbone/node_modules/underscore":2,"react":173}],182:[function(require,module,exports){
 //This is the navigation component. The router has been passed in as a property.
 'use strict';
 
@@ -35152,7 +35148,7 @@ module.exports = React.createClass({
 								React.createElement(
 									'div',
 									{ className: 'item' },
-									React.createElement('img', { className: 'adjust', src: '../../images/gist_iphone6.jpg' }),
+									React.createElement('img', { className: 'adjust', src: '../../images/gist_iphone6Big.jpg' }),
 									React.createElement(
 										'div',
 										{ className: 'carousel-caption' },
@@ -35232,7 +35228,7 @@ module.exports = React.createClass({
 								React.createElement(
 									'div',
 									{ className: 'item active' },
-									React.createElement('img', { className: 'computer1', src: '../../images/Boblog.png' }),
+									React.createElement('img', { className: 'computer1', src: '../../images/IronQuizzes1.png' }),
 									React.createElement(
 										'div',
 										{ className: 'carousel-caption' },
@@ -35242,7 +35238,7 @@ module.exports = React.createClass({
 								React.createElement(
 									'div',
 									{ className: 'item' },
-									React.createElement('img', { className: 'adjust', src: '../../images/ImageBoard.png' }),
+									React.createElement('img', { className: 'adjust', src: '../../images/IronQuizzes2.png' }),
 									React.createElement(
 										'div',
 										{ className: 'carousel-caption' },
@@ -35252,7 +35248,7 @@ module.exports = React.createClass({
 								React.createElement(
 									'div',
 									{ className: 'item' },
-									React.createElement('img', { src: '../../images/parse-products.png', alt: '...' }),
+									React.createElement('img', { src: '../../images/IronQuizzes3.png', alt: '...' }),
 									React.createElement(
 										'div',
 										{ className: 'carousel-caption' },
@@ -35277,21 +35273,21 @@ module.exports = React.createClass({
 						{ className: 'col-xs-12 col-sm-8' },
 						React.createElement(
 							'a',
-							{ href: '#BL' },
+							{ href: '#IQ' },
 							React.createElement(
 								'h2',
 								null,
-								'Make a Post, or Buy a Book!'
+								'Iron Quizzes!'
 							)
 						),
 						React.createElement(
 							'p',
 							null,
-							'BobLog Parse-Products ImageBoard '
+							'A group project with over 800 commits to GitHub. We acted as if we got a real user story to make an app that would allow teachers create quizzes that in turn helped track progress and attendence for individuals, classes, and cohorts. '
 						),
 						React.createElement(
 							'a',
-							{ href: '#BL' },
+							{ href: '#IQ' },
 							React.createElement(
 								'button',
 								{ className: 'exploreBtn' },
@@ -36083,7 +36079,7 @@ var ProfileComponent = require('./components/ProfileComponent');
 var MyListsComponent = require('./components/MyListsComponent');
 var ItemDetailsComponent = require('./components/ItemDetailsComponent');
 var AddListComponent = require('./components/AddListComponent');
-var BoblogComponent = require('./components/BoblogComponent');
+var IronQuizzesComponent = require('./components/IronQuizzesComponent');
 var BoardTileComponent = require('./components/BoardTileComponent');
 
 $(document).on('ready', function () {
@@ -36098,7 +36094,7 @@ $(document).on('ready', function () {
 			'myLists(/:id)': 'myLists',
 			'details/:id': 'details',
 			'addList': 'addList',
-			'BL': 'BLhome',
+			'IQ': 'IQhome',
 			'ttt': 'ttt'
 		},
 		home: function home() {
@@ -36138,8 +36134,8 @@ $(document).on('ready', function () {
 			ReactDOM.render(React.createElement(AddListComponent, { router: r }), document.getElementById('main'));
 			ReactDOM.render(React.createElement(NavigationComponent, { router: r }), document.getElementById('nav'));
 		},
-		BLhome: function BLhome() {
-			ReactDOM.render(React.createElement(BoblogComponent, { router: r }), document.getElementById('main'));
+		IQhome: function IQhome() {
+			ReactDOM.render(React.createElement(IronQuizzesComponent, { router: r }), document.getElementById('main'));
 		},
 		ttt: function ttt() {
 			ReactDOM.render(React.createElement(BoardTileComponent, { router: r }), document.getElementById('main'));
@@ -36151,7 +36147,7 @@ $(document).on('ready', function () {
 	Backbone.history.start();
 });
 
-},{"./components/AddListComponent":174,"./components/BoardTileComponent":175,"./components/BoblogComponent":176,"./components/HomeComponent":178,"./components/ItemDetailsComponent":179,"./components/MyListsComponent":181,"./components/NavigationComponent":182,"./components/PPageComponent":183,"./components/ProductSearchComponent":185,"./components/ProfileComponent":186,"backbone":1,"bootstrap":3,"jquery":17,"react":173,"react-dom":18}],190:[function(require,module,exports){
+},{"./components/AddListComponent":174,"./components/BoardTileComponent":175,"./components/HomeComponent":177,"./components/IronQuizzesComponent":178,"./components/ItemDetailsComponent":179,"./components/MyListsComponent":181,"./components/NavigationComponent":182,"./components/PPageComponent":183,"./components/ProductSearchComponent":185,"./components/ProfileComponent":186,"backbone":1,"bootstrap":3,"jquery":17,"react":173,"react-dom":18}],190:[function(require,module,exports){
 'use strict';
 
 module.exports = Parse.Object.extend({

@@ -48,7 +48,7 @@ module.exports = React.createClass({
 										</div>
 									</div>
 									<div className="item">
-										<img className="adjust" src="../../images/gist_iphone6.jpg"/>
+										<img className="adjust" src="../../images/gist_iphone6Big.jpg"/>
 										<div className="carousel-caption">
 											<h3></h3>
 										</div>
@@ -87,19 +87,19 @@ module.exports = React.createClass({
 
 								<div className="carousel-inner">
 									<div className="item active">
-										<img className="computer1" src="../../images/Boblog.png"/>
+										<img className="computer1" src="../../images/IronQuizzes1.png"/>
 										<div className="carousel-caption">
 											<h3></h3>
 										</div>
 									</div>
 									<div className="item">
-										<img className="adjust" src="../../images/ImageBoard.png"/>
+										<img className="adjust" src="../../images/IronQuizzes2.png"/>
 										<div className="carousel-caption">
 											<h3></h3>
 										</div>
 									</div>
 									<div className="item">
-										<img src="../../images/parse-products.png" alt="..."/>
+										<img src="../../images/IronQuizzes3.png" alt="..."/>
 										<div className="carousel-caption">
 											<h3></h3>
 										</div>
@@ -116,9 +116,9 @@ module.exports = React.createClass({
 							</div> 
 						</div>
 						<div className="col-xs-12 col-sm-8">
-							<a href="#BL"><h2>Make a Post, or Buy a Book!</h2></a>
-							<p>BobLog Parse-Products ImageBoard </p>
-							<a href="#BL"><button className="exploreBtn">Explore</button></a>
+							<a href="#IQ"><h2>Iron Quizzes!</h2></a>
+							<p>A group project with over 800 commits to GitHub. We acted as if we got a real user story to make an app that would allow teachers create quizzes that in turn helped track progress and attendence for individuals, classes, and cohorts. </p>
+							<a href="#IQ"><button className="exploreBtn">Explore</button></a>
 						</div>
 					</div>
 					<div className="row TicRow">

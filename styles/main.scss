@@ -100,13 +100,20 @@ body{
 
 .item{
 	img{
-		margin: 0 auto;
-		max-height: 15em;
+		margin: auto auto;
+		// max-height: 18em;
 	}
 }
+
 .footerP{
 	padding: 1em;
 	text-align: center;
+}
+//THe CSS for Iron Quizzes Page------------------------
+
+.uc{
+	width: 100%;
+	// margin: 0 auto;
 }
 
 //TICTACTOE--------------------------------------------
@@ -258,12 +265,13 @@ body{
 	height: 100%;
 	.loginWhite{
 		background-color: white;
-		// height: 60%;
+		padding: 1em;
 		border: 3px solid #F79227;
 		.loginForm{
 			input{
 				border-style: none;
 				font-size: 2em;
+				width: 100%;
 			}
 			button{
 				width: 40%;
