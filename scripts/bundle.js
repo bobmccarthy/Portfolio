@@ -34853,7 +34853,7 @@ module.exports = React.createClass({
 				'Login'
 			));
 		} else {
-			$('.hamburgerBtn').show();
+
 			navChange.push(React.createElement(
 				'a',
 				{ key: 'b', className: 'right rightBtn', href: '#logout', onClick: this.logout },
@@ -35836,7 +35836,7 @@ module.exports = React.createClass({
 			$('.xtraMargin').css({ 'width': '25%' });
 		} else {
 			$('.listItems').hide();
-			$('.' + this.refs.searchBox.value).show();
+			$('.' + this.refs.searchBox.value[0]).show();
 			$('.xtraMargin').css({ 'width': '100%' });
 		}
 

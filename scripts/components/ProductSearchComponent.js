@@ -187,7 +187,7 @@ module.exports = React.createClass({
 		}
 		else{
 			$('.listItems').hide();
-			$('.'+this.refs.searchBox.value).show();
+			$('.'+this.refs.searchBox.value[0]).show();
 			$('.xtraMargin').css({'width': '100%'});
 		}
 		

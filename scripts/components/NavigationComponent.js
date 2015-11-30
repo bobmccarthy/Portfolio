@@ -40,7 +40,7 @@ module.exports = React.createClass({
 		}
 
 		else{
-			$('.hamburgerBtn').show();
+			
 			navChange.push(<a key="b" className="right rightBtn" href="#logout" onClick={this.logout}>Logout</a>);
 			navChange.push(<a key="c" className={currentPage === 'profile' ? 'active right rightBtn box-shadow--2dp' : 'right rightBtn'} href="#profile">{Parse.User.current().get('username')}`s Profile</a>);
 			navChange.push(<a key="f" className={currentPage === 'myLists' ? 'active right rightBtn box-shadow--2dp' : 'right rightBtn'} href="#myLists">My Lists</a>);
