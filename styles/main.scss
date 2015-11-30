@@ -320,7 +320,7 @@ body{
 
 	}
 	.hamburgerBtn{
-		
+		display: inline-block;
 		width: 1.2em;
 		height: 0.8em;
 		background-color: white;
@@ -330,7 +330,8 @@ body{
 		font-size: 2.5em;
 		text-align: center;
 		padding: 0;
-		border-color: #F79227;
+		border: 2px solid #F79227;
+		
 	}
 	.haMenu{
 		float: right;

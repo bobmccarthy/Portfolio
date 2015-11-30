@@ -34,9 +34,10 @@ module.exports = React.createClass({
 		var navChange = [];
 		
 		if (!Parse.User.current()){
-			$('.hamburgerBtn').hide();
-			$('.loginButtonThing').show();
+			// $('.hamburgerBtn').hide();
+			// $('.loginButtonThing').show();
 			navChange.push(<a key="a" className="loginButtonThing right rightBtn" href="#login">Login</a>);
+			menuDropdown.push(<div><a key="p" className="hBtn" href="#login">Login</a></div>);
 		}
 
 		else{
@@ -89,6 +90,7 @@ module.exports = React.createClass({
 				success: (u) => {
 					this.forceUpdate();
 					$('#login').hide();
+					
 					this.props.router.navigate('#productSearch/'+this.state.selectedList, {trigger: true});
 
 				},
@@ -104,10 +106,10 @@ module.exports = React.createClass({
 		console.log('logout');
 		e.preventDefault();
 		Parse.User.logOut();
-		$('.hamburgerBtn').hide();
+		
 
 		this.props.router.navigate('#logout', {trigger: true});
-		$('.loginButtonThing').show();
+		// $('.loginButtonThing').show();
 	},
 	menu: function(){
 		$('.haMenu').toggle('slow');
