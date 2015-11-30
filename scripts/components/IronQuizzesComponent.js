@@ -5,7 +5,10 @@ var Backbone = require('backbone');
 module.exports = React.createClass({
 	render: function() {
 		return(
-			<img className="uc" src="../../images/underconstruction.jpg"/>
+			<div>
+				<img className="uc" src="../../images/underconstruction.jpg"/>
+				<p>universitycdc.org/wp-content/uploads/2015/06/underconstruction.jpg</p>
+			</div>
 		)
 	}
 });

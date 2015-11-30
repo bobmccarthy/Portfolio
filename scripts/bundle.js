@@ -34587,7 +34587,16 @@ module.exports = React.createClass({
 	displayName: 'exports',
 
 	render: function render() {
-		return React.createElement('img', { className: 'uc', src: '../../images/underconstruction.jpg' });
+		return React.createElement(
+			'div',
+			null,
+			React.createElement('img', { className: 'uc', src: '../../images/underconstruction.jpg' }),
+			React.createElement(
+				'p',
+				null,
+				'universitycdc.org/wp-content/uploads/2015/06/underconstruction.jpg'
+			)
+		);
 	}
 });
 
