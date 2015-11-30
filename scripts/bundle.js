@@ -34814,6 +34814,7 @@ var Backbone = require('backbone');
 var Bootstrap = require('bootstrap');
 var ListModel = require('../models/ListModel');
 var listQuery = new Parse.Query(ListModel);
+var $ = require('jquery');
 var selectedList;
 
 module.exports = React.createClass({
@@ -34837,26 +34838,22 @@ module.exports = React.createClass({
 		});
 	},
 	render: function render() {
-		// console.log($('#myLists').val());
-		// if (!$('#myLists').val()){
-		// 	listQuery.first((list) => {
-		// 		selectedList=list.id;
-		// 	});
-		// }
-		// else{
-		// 	selectedList=$('#myLists').val();
-		// }
-
-		var navChange = [];
+		$('.haMenu').hide();
 		var currentPage = Backbone.history.getFragment();
 		var subUrl = currentPage.substring(0, 13);
+		var menuDropdown = [];
+		var navChange = [];
+
 		if (!Parse.User.current()) {
+			$('.hamburgerBtn').hide();
+			$('.loginButtonThing').show();
 			navChange.push(React.createElement(
 				'a',
-				{ key: 'a', className: 'right rightBtn', href: '#login' },
+				{ key: 'a', className: 'loginButtonThing right rightBtn', href: '#login' },
 				'Login'
 			));
 		} else {
+			$('.hamburgerBtn').show();
 			navChange.push(React.createElement(
 				'a',
 				{ key: 'b', className: 'right rightBtn', href: '#logout', onClick: this.logout },
@@ -34878,6 +34875,43 @@ module.exports = React.createClass({
 				{ key: 'e', id: 'proBtn', className: subUrl === 'productSearch' ? 'active right rightBtn box-shadow--2dp' : 'right rightBtn', href: '#productSearch/' + this.state.selectedList },
 				'Product Picker'
 			));
+			menuDropdown.push(React.createElement(
+				'div',
+				null,
+				React.createElement(
+					'a',
+					{ key: 'h', className: 'hBtn', href: '#logout', onClick: this.logout },
+					'Logout'
+				)
+			));
+			menuDropdown.push(React.createElement(
+				'div',
+				null,
+				React.createElement(
+					'a',
+					{ key: 'i', className: currentPage === 'profile' ? 'active hBtn' : 'hBtn', href: '#profile', onClick: this.mini },
+					Parse.User.current().get('username'),
+					'`s Profile'
+				)
+			));
+			menuDropdown.push(React.createElement(
+				'div',
+				null,
+				React.createElement(
+					'a',
+					{ key: 'j', className: currentPage === 'myLists' ? 'active hBtn' : 'hBtn', href: '#myLists', onClick: this.mini },
+					'My Lists'
+				)
+			));
+			menuDropdown.push(React.createElement(
+				'div',
+				null,
+				React.createElement(
+					'a',
+					{ key: 'k', className: subUrl === 'productSearch' ? 'active hBtn' : 'hBtn', href: '#productSearch/' + this.state.selectedList, onClick: this.mini },
+					'Product Picker'
+				)
+			));
 		}
 		return React.createElement(
 			'div',
@@ -34896,13 +34930,13 @@ module.exports = React.createClass({
 							null,
 							'Username:'
 						),
-						React.createElement('input', { className: 'box-shadow--4dp', type: 'text', ref: 'username' }),
+						React.createElement('input', { className: 'box-shadow--4dp', type: 'text', ref: 'username', defaultValue: 'Bob' }),
 						React.createElement(
 							'h2',
 							null,
 							'Password:'
 						),
-						React.createElement('input', { className: 'box-shadow--4dp', type: 'password', ref: 'password' }),
+						React.createElement('input', { className: 'box-shadow--4dp', type: 'password', ref: 'password', defaultValue: '1234' }),
 						React.createElement(
 							'button',
 							{ className: 'box-shadow--4dp' },
@@ -34934,7 +34968,19 @@ module.exports = React.createClass({
 					{ className: 'portBtn', href: '#' },
 					'Back to Portfolio'
 				),
-				navChange
+				navChange,
+				React.createElement(
+					'button',
+					{ onClick: this.menu, className: 'hamburgerBtn box-shadow--2dp' },
+					'-',
+					React.createElement('br', null),
+					'-'
+				),
+				React.createElement(
+					'div',
+					{ className: 'haMenu box-shadow--6dp' },
+					menuDropdown.reverse()
+				)
 			)
 		);
 	},
@@ -34960,12 +35006,21 @@ module.exports = React.createClass({
 		console.log('logout');
 		e.preventDefault();
 		Parse.User.logOut();
+		$('.hamburgerBtn').hide();
+
 		this.props.router.navigate('#logout', { trigger: true });
+		$('.loginButtonThing').show();
+	},
+	menu: function menu() {
+		$('.haMenu').toggle('slow');
+	},
+	mini: function mini() {
+		$('.haMenu').toggle('slow');
 	}
 
 });
 
-},{"../models/ListModel":190,"backbone":1,"bootstrap":3,"react":173}],183:[function(require,module,exports){
+},{"../models/ListModel":190,"backbone":1,"bootstrap":3,"jquery":17,"react":173}],183:[function(require,module,exports){
 //This is the navigation component. The router has been passed in as a property.
 'use strict';
 
@@ -35654,42 +35709,46 @@ module.exports = React.createClass({
 					'div',
 					{ className: 'storeLogo col-xs-12 col-sm-4 box-shadow--2dp' },
 					React.createElement(
-						'h2',
+						'h3',
 						null,
 						'FreshMarketFoods'
 					)
 				),
 				React.createElement(
 					'div',
-					{ className: 'col-xs-12 col-sm-8 row searches' },
+					{ className: 'col-xs-12 col-sm-8 container searches' },
 					React.createElement(
 						'div',
-						{ className: 'col-xs-6' },
+						{ className: 'row' },
 						React.createElement(
-							'p',
-							null,
-							'Add Items To List:'
-						),
-						listDropdown,
-						React.createElement(
-							'p',
-							{ className: 'or' },
-							' or '
-						),
-						React.createElement(
-							'a',
-							{ href: '#addList' },
+							'div',
+							{ className: 'col-xs-8' },
 							React.createElement(
-								'button',
-								{ className: 'box-shadow--2dp adList' },
-								'Create New List'
+								'p',
+								null,
+								'Add Items To List:'
+							),
+							listDropdown,
+							React.createElement(
+								'p',
+								{ className: 'or' },
+								' or '
+							),
+							React.createElement(
+								'a',
+								{ href: '#addList' },
+								React.createElement(
+									'button',
+									{ className: 'box-shadow--2dp adList' },
+									'New List'
+								)
 							)
+						),
+						React.createElement(
+							'div',
+							{ className: 'col-xs-4 searchy' },
+							React.createElement('input', { ref: 'searchBox', onKeyUp: this.color, className: 'searchBox box-shadow--4dp', placeholder: 'Search:', type: 'text' })
 						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'col-xs-6 searchy' },
-						React.createElement('input', { ref: 'searchBox', onKeyUp: this.color, className: 'searchBox box-shadow--4dp', placeholder: 'Search Products:', type: 'text' })
 					)
 				)
 			),
@@ -36004,7 +36063,7 @@ var Backbone = require('backbone');
 window.$ = require('jquery');
 window.jQuery = $;
 
-Parse.initialize('p5pjOUCZjobYEd8rUofEo9IkLessjDxRUsUtvp16', 'Tf3Rd4zjnI98dzkqlcEDVnJ2Pi3vHlumQR8blaHr');
+Parse.initialize("p5pjOUCZjobYEd8rUofEo9IkLessjDxRUsUtvp16", "Tf3Rd4zjnI98dzkqlcEDVnJ2Pi3vHlumQR8blaHr");
 
 var PPageComponent = require('./components/PPageComponent');
 
@@ -36017,7 +36076,6 @@ var ItemDetailsComponent = require('./components/ItemDetailsComponent');
 var AddListComponent = require('./components/AddListComponent');
 var BoblogComponent = require('./components/BoblogComponent');
 var BoardTileComponent = require('./components/BoardTileComponent');
-Parse.User.logIn('Bob', '1234');
 
 $(document).on('ready', function () {
 	var Router = Backbone.Router.extend({
@@ -36035,7 +36093,7 @@ $(document).on('ready', function () {
 			'ttt': 'ttt'
 		},
 		home: function home() {
-			Parse.User.logIn('Bob', '1234');
+
 			ReactDOM.render(React.createElement(PPageComponent, null), document.getElementById('main'));
 			$('#nav').hide();
 		},
@@ -36052,6 +36110,7 @@ $(document).on('ready', function () {
 		productSearch: function productSearch(id) {
 			ReactDOM.render(React.createElement(ProductSearchComponent, { router: r, listId: id }), document.getElementById('main'));
 			ReactDOM.render(React.createElement(NavigationComponent, { router: r }), document.getElementById('nav'));
+			$('body').scrollTop(0);
 		},
 		profile: function profile() {
 			ReactDOM.render(React.createElement(ProfileComponent, { router: r }), document.getElementById('main'));
@@ -36060,6 +36119,7 @@ $(document).on('ready', function () {
 		myLists: function myLists(id) {
 			ReactDOM.render(React.createElement(MyListsComponent, { router: r, itemId: id }), document.getElementById('main'));
 			ReactDOM.render(React.createElement(NavigationComponent, { router: r }), document.getElementById('nav'));
+			$('body').scrollTop(0);
 		},
 		details: function details(id) {
 			ReactDOM.render(React.createElement(ItemDetailsComponent, { router: r, itemId: id }), document.getElementById('main'));

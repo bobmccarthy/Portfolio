@@ -4,6 +4,7 @@ var Backbone = require('backbone');
 var Bootstrap = require('bootstrap');
 var ListModel = require('../models/ListModel');
 var listQuery = new Parse.Query(ListModel);
+var $ = require('jquery');
 var selectedList;
 
 
@@ -26,28 +27,28 @@ module.exports = React.createClass({
 		
 	},
 	render: function() {
-		// console.log($('#myLists').val());
-		// if (!$('#myLists').val()){
-		// 	listQuery.first((list) => {
-		// 		selectedList=list.id;
-		// 	});
-		// }
-		// else{
-		// 	selectedList=$('#myLists').val();
-		// }
-		
-		var navChange = [];
+		$('.haMenu').hide();
 		var currentPage = Backbone.history.getFragment();
 		var subUrl = currentPage.substring(0,13);
+		var menuDropdown=[];
+		var navChange = [];
+		
 		if (!Parse.User.current()){
-			navChange.push(<a key="a" className="right rightBtn" href="#login">Login</a>);
+			$('.hamburgerBtn').hide();
+			$('.loginButtonThing').show();
+			navChange.push(<a key="a" className="loginButtonThing right rightBtn" href="#login">Login</a>);
 		}
 
 		else{
+			$('.hamburgerBtn').show();
 			navChange.push(<a key="b" className="right rightBtn" href="#logout" onClick={this.logout}>Logout</a>);
 			navChange.push(<a key="c" className={currentPage === 'profile' ? 'active right rightBtn box-shadow--2dp' : 'right rightBtn'} href="#profile">{Parse.User.current().get('username')}`s Profile</a>);
 			navChange.push(<a key="f" className={currentPage === 'myLists' ? 'active right rightBtn box-shadow--2dp' : 'right rightBtn'} href="#myLists">My Lists</a>);
 			navChange.push(<a key="e" id="proBtn" className={subUrl === 'productSearch' ? 'active right rightBtn box-shadow--2dp' : 'right rightBtn'} href={'#productSearch/'+this.state.selectedList}>Product Picker</a>);
+			menuDropdown.push(<div><a key="h" className="hBtn" href="#logout" onClick={this.logout}>Logout</a></div>);
+			menuDropdown.push(<div><a key="i" className={currentPage === 'profile' ? 'active hBtn' : 'hBtn'} href="#profile" onClick={this.mini}>{Parse.User.current().get('username')}`s Profile</a></div>);
+			menuDropdown.push(<div><a key="j" className={currentPage === 'myLists' ? 'active hBtn' : 'hBtn'} href="#myLists" onClick={this.mini}>My Lists</a></div>);
+			menuDropdown.push(<div><a key="k" className={subUrl === 'productSearch' ? 'active hBtn' : 'hBtn'} href={'#productSearch/'+this.state.selectedList} onClick={this.mini}>Product Picker</a></div>);
 			
 			
 		}				
@@ -57,9 +58,9 @@ module.exports = React.createClass({
 					<div className="loginWhite">
 						<form className="loginForm" onSubmit={this.login}>
 							<h2>Username:</h2>
-							<input className="box-shadow--4dp" type="text" ref="username"/>
+							<input className="box-shadow--4dp" type="text" ref="username" defaultValue="Bob"/>
 							<h2>Password:</h2>
-							<input className="box-shadow--4dp" type="password" ref="password"/>
+							<input className="box-shadow--4dp" type="password" ref="password" defaultValue="1234"/>
 							<button className="box-shadow--4dp">Go!</button>
 						</form>
 					</div>
@@ -69,6 +70,10 @@ module.exports = React.createClass({
 					<a className="navBtn" href="#Gist"><strong>G</strong><span className="spam">ist</span></a>
 					<a className="portBtn" href="#">Back to Portfolio</a>
 					{navChange}
+					<button onClick={this.menu} className="hamburgerBtn box-shadow--2dp">-<br/>-</button>
+					<div className="haMenu box-shadow--6dp">
+						{menuDropdown.reverse()}
+					</div>
 				</div>
 				
 			</div>
@@ -99,7 +104,16 @@ module.exports = React.createClass({
 		console.log('logout');
 		e.preventDefault();
 		Parse.User.logOut();
-		this.props.router.navigate('#logout', {trigger: true})
+		$('.hamburgerBtn').hide();
+
+		this.props.router.navigate('#logout', {trigger: true});
+		$('.loginButtonThing').show();
+	},
+	menu: function(){
+		$('.haMenu').toggle('slow');
+	},
+	mini: function(){
+		$('.haMenu').toggle('slow');
 	}
 
 });

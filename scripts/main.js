@@ -6,7 +6,7 @@ var Backbone = require('backbone');
 window.$ = require('jquery');
 window.jQuery = $;
 
-Parse.initialize('p5pjOUCZjobYEd8rUofEo9IkLessjDxRUsUtvp16', 'Tf3Rd4zjnI98dzkqlcEDVnJ2Pi3vHlumQR8blaHr');
+Parse.initialize("p5pjOUCZjobYEd8rUofEo9IkLessjDxRUsUtvp16", "Tf3Rd4zjnI98dzkqlcEDVnJ2Pi3vHlumQR8blaHr");
 
 var PPageComponent = require('./components/PPageComponent');
 
@@ -19,10 +19,7 @@ var ItemDetailsComponent = require('./components/ItemDetailsComponent');
 var AddListComponent = require('./components/AddListComponent');
 var BoblogComponent = require('./components/BoblogComponent');
 var BoardTileComponent = require('./components/BoardTileComponent');
-Parse.User.logIn(
-	'Bob',
-	'1234'
-);
+
 
 $(document).on('ready', function(){
 	var Router = Backbone.Router.extend({
@@ -40,10 +37,7 @@ $(document).on('ready', function(){
 			'ttt': 'ttt'
 		},
 		home: function(){
-			Parse.User.logIn(
-				'Bob',
-				'1234'
-			);
+			
 			ReactDOM.render(<PPageComponent />,
 			document.getElementById('main'));
 			$('#nav').hide();
@@ -67,6 +61,7 @@ $(document).on('ready', function(){
 			ReactDOM.render(
 			<NavigationComponent router={r} />,
 			document.getElementById('nav'));
+			$('body').scrollTop(0);
 		},
 		profile: function(){
 			ReactDOM.render(<ProfileComponent router={r} />,
@@ -81,6 +76,7 @@ $(document).on('ready', function(){
 			ReactDOM.render(
 			<NavigationComponent router={r} />,
 			document.getElementById('nav'));
+			$('body').scrollTop(0);
 		},
 		details: function(id){
 			ReactDOM.render(<ItemDetailsComponent router={r} itemId={id}/>,

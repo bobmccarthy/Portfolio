@@ -119,19 +119,21 @@ module.exports = React.createClass({
 			<div>
 				<div className="bottom-navbar row box-shadow--2dp">
 					<div className="storeLogo col-xs-12 col-sm-4 box-shadow--2dp">
-						<h2>FreshMarketFoods</h2>
+						<h3>FreshMarketFoods</h3>
 					</div>
-					<div className="col-xs-12 col-sm-8 row searches">
-						<div className="col-xs-6">
-							<p>Add Items To List:</p>
-							{listDropdown}
-							<p className="or"> or </p>
-							<a href="#addList"><button className="box-shadow--2dp adList">Create New List</button></a>
-						</div>
+					<div className="col-xs-12 col-sm-8 container searches">
+						<div className="row">	
+							<div className="col-xs-8">
+								<p>Add Items To List:</p>
+								{listDropdown}
+								<p className="or"> or </p>
+								<a href="#addList"><button className="box-shadow--2dp adList">New List</button></a>
+							</div>
 
-						<div className="col-xs-6 searchy">
-							<input ref="searchBox" onKeyUp={this.color} className="searchBox box-shadow--4dp" placeholder="Search Products:" type="text" />
-						
+							<div className="col-xs-4 searchy">
+								<input ref="searchBox" onKeyUp={this.color} className="searchBox box-shadow--4dp" placeholder="Search:" type="text" />
+							
+							</div>
 						</div>
 					</div>
 				</div>

@@ -245,10 +245,36 @@ body {
     font-size: 0.75em;
     padding: 0.25em;
     padding-top: 1em; }
+  .top-navbar .right {
+    display: none; }
   .top-navbar .active {
     background-color: #F79227; }
   .top-navbar #proBtn {
     margin-left: 0; }
+  .top-navbar .hamburgerBtn {
+    width: 1.2em;
+    height: 0.8em;
+    background-color: white;
+    margin: 0.2em;
+    float: right;
+    line-height: 0.2em;
+    font-size: 2.5em;
+    text-align: center;
+    padding: 0;
+    border-color: #F79227; }
+  .top-navbar .haMenu {
+    float: right;
+    margin: 2.8em -3.5em 0 0;
+    padding: 0.5em;
+    padding-left: 0;
+    background-color: white; }
+    .top-navbar .haMenu div .hBtn {
+      color: black;
+      font-size: 2em;
+      margin-left: 0.25em;
+      padding: 0 0.25em; }
+    .top-navbar .haMenu div .active {
+      color: white; }
 
 .bottom-navbar {
   text-align: center; }
@@ -267,6 +293,8 @@ body {
       border-style: none; }
   .bottom-navbar .searches .searchy {
     padding-top: 1.5em; }
+    .bottom-navbar .searches .searchy .searchBox {
+      width: 80%; }
   .bottom-navbar .searches .adList {
     background-color: #707070;
     color: white; }
@@ -281,7 +309,7 @@ body {
   .bottom-navbar #myLists {
     background-image: url("../images/down-arrow.png");
     height: 2em;
-    margin: .7em; }
+    margin: 0.6em; }
 
 .listItemDeets {
   font-size: 1.25em; }
@@ -429,8 +457,12 @@ body {
       float: right;
       margin-bottom: 0.5em; }
   .top-navbar .rightBtn {
-    font-size: 1.6em;
-    padding: 0.25em; } }
+    font-size: 1.5em;
+    padding: 0.25em; }
+  .top-navbar .right {
+    display: block; }
+  .top-navbar .hamburgerBtn {
+    display: none; } }
 
 @media screen and (min-width: 62em) {
   .homeBkg .item {

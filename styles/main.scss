@@ -308,12 +308,48 @@ body{
 		padding: 0.25em;
 		padding-top: 1em;
 	}
+	.right{
+		display: none;
+	}
 	.active{
 		background-color: #F79227;//the orange
+
 	}
 	#proBtn{
 		margin-left: 0;
 
+	}
+	.hamburgerBtn{
+		width: 1.2em;
+		height: 0.8em;
+		background-color: white;
+		margin: 0.2em;
+		float: right;
+		line-height: 0.2em;
+		font-size: 2.5em;
+		text-align: center;
+		padding: 0;
+		border-color: #F79227;
+	}
+	.haMenu{
+		// display: none;
+		float: right;
+		margin: 2.8em -3.5em 0 0;
+		padding: 0.5em;
+		padding-left: 0;
+		
+		background-color: white;
+		div{
+			.hBtn{
+				color: black;
+				font-size: 2em;
+				margin-left:0.25em;
+				padding: 0 0.25em;
+			}
+			.active{
+				color: white;
+			}
+		}
 	}
 }
 .bottom-navbar{
@@ -323,6 +359,7 @@ body{
 		color: white;
 		padding: 2em;
 		font-family: futura;
+
 	}
 	.searches{
 		// padding-top: 1em;
@@ -340,6 +377,9 @@ body{
 		}
 		.searchy{
 			padding-top: 1.5em;
+			.searchBox{
+				width: 80%;
+			}
 		}
 		.adList{
 			background-color: #707070;
@@ -360,7 +400,7 @@ body{
 	#myLists{
 		background-image: url('../images/down-arrow.png');
 		height: 2em;
-		margin: .7em;
+		margin: 0.6em;
 	}
 }
 .listItemDeets{
@@ -535,6 +575,7 @@ body{
 			padding: 0.35em;
 			padding-top: 0.8em;
 		}
+
 	}
 }
 @media screen and (min-width: 48em){
@@ -563,8 +604,14 @@ body{
 	}
 	.top-navbar{
 		.rightBtn{
-			font-size: 1.6em;
+			font-size: 1.5em;
 			padding: 0.25em;
+		}
+		.right{
+			display: block;
+		}
+		.hamburgerBtn{
+			display: none;
 		}
 	}
 	
