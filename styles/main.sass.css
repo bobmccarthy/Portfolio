@@ -32,6 +32,8 @@ body {
 .aboutMe {
   margin: 1em;
   margin-bottom: 2em; }
+  .aboutMe .linkedIn {
+    background-color: white; }
 
 .GistRow {
   text-decoration: none;
@@ -40,6 +42,9 @@ body {
   padding: 2em; }
   .GistRow .exploreBtn {
     background-color: white; }
+  .GistRow .codePage {
+    background-color: white;
+    margin-left: 1em; }
 
 .TicRow {
   text-decoration: none;
@@ -48,6 +53,9 @@ body {
   padding: 2em; }
   .TicRow .exploreBtn {
     background-color: white; }
+  .TicRow .codePage {
+    background-color: white;
+    margin-left: 1em; }
 
 .ImageRow {
   text-decoration: none;
@@ -66,6 +74,9 @@ body {
     float: right; }
   .BlogRow .exploreBtn {
     background-color: white; }
+  .BlogRow .codePage {
+    background-color: white;
+    margin-left: 1em; }
 
 .ProductsRow {
   text-decoration: none;

@@ -23,6 +23,7 @@ module.exports = React.createClass({
 					<div className="row aboutMe">
 						<div className="col-xs-12 col-md-4">
 							<p>Recent graduate of The Iron Yard, Austin. Voted `Javascript Warloard`, I have just found my love for coding. As you explore my portfolio, click as many buttons as you can. This site is a representation of some of the things I learned over the Front-end Engineering course I took. Have fun and enjoy!</p>
+							<a href="https://www.linkedin.com/in/bobmccarthyatx"><button className="linkedIn">View My LinkedIn</button></a>
 						</div>
 						<div className="col-xs-12 col-md-4">
 							<p>I used React to build this site. Most of my HTML is sepereated into special components that only get shown on the page in specific circumstances. I am familiar with CSS, and prefer to use a transpiler so I can style using SASS, and have the page read it as CSS. I enjoy using the Bootstrap grid system, but pretty much can`t stand their default styling. So, on this site I used some of the Materialize CSS as well. JavaScript has become my forte. I am the only person I know who <i>likes</i> whiteboarding.</p>
@@ -74,6 +75,7 @@ module.exports = React.createClass({
 							<a href="#Gist"><h2>You Get the Gist!</h2></a>
 							<p>Introducing my next greatest idea, Gist! I was working the Guest Service desk at Whole Foods recently and someone’s really nice grandmother came up to me and said: `My doctor told me I have to eat Gluten Free.` Me: `Yes ma’am, how can I help?` Her: `I am so hungry!` This sparked my idea for an app that would allow people to see what groceries are available for their unique diet at the store of their choice. Also built in is a way to make quick grocery lists and save them for future use.</p>
 							<a href="#Gist"><button className="exploreBtn">Explore</button></a>
+							<a href="https://github.com/bobmccarthy/final-project"><button className="codePage">See the Code</button></a>
 						</div>
 					</div>
 					<div className="row BlogRow">
@@ -119,6 +121,7 @@ module.exports = React.createClass({
 							<a href="#IQ"><h2>Iron Quizzes!</h2></a>
 							<p>A group project with over 800 commits to GitHub. We acted as if we got a real user story to make an app that would allow teachers create quizzes that in turn helped track progress and attendence for individuals, classes, and cohorts. </p>
 							<a href="#IQ"><button className="exploreBtn">Explore</button></a>
+							<a href="https://github.com/TIY-Austin-Front-End-Engineering/Iron-Quizzes"><button className="codePage">See the Code</button></a>
 						</div>
 					</div>
 					<div className="row TicRow">
@@ -164,6 +167,7 @@ module.exports = React.createClass({
 							<a href="#ttt"><h2>Lets Play!</h2></a>
 							<p>Take a look at my latest creation. Built with HTML, CSS, JavaScript, and React.</p>
 							<a href="#ttt"><button className="exploreBtn">Explore</button></a>
+							<a href="https://github.com/bobmccarthy/tic-tac-bob"><button className="codePage">See the Code</button></a>
 						</div>
 					</div>
 				</div>

@@ -35098,6 +35098,15 @@ module.exports = React.createClass({
 							'p',
 							null,
 							'Recent graduate of The Iron Yard, Austin. Voted `Javascript Warloard`, I have just found my love for coding. As you explore my portfolio, click as many buttons as you can. This site is a representation of some of the things I learned over the Front-end Engineering course I took. Have fun and enjoy!'
+						),
+						React.createElement(
+							'a',
+							{ href: 'https://www.linkedin.com/in/bobmccarthyatx' },
+							React.createElement(
+								'button',
+								{ className: 'linkedIn' },
+								'View My LinkedIn'
+							)
 						)
 					),
 					React.createElement(
@@ -35212,6 +35221,15 @@ module.exports = React.createClass({
 								{ className: 'exploreBtn' },
 								'Explore'
 							)
+						),
+						React.createElement(
+							'a',
+							{ href: 'https://github.com/bobmccarthy/final-project' },
+							React.createElement(
+								'button',
+								{ className: 'codePage' },
+								'See the Code'
+							)
 						)
 					)
 				),
@@ -35302,6 +35320,15 @@ module.exports = React.createClass({
 								{ className: 'exploreBtn' },
 								'Explore'
 							)
+						),
+						React.createElement(
+							'a',
+							{ href: 'https://github.com/TIY-Austin-Front-End-Engineering/Iron-Quizzes' },
+							React.createElement(
+								'button',
+								{ className: 'codePage' },
+								'See the Code'
+							)
 						)
 					)
 				),
@@ -35391,6 +35418,15 @@ module.exports = React.createClass({
 								'button',
 								{ className: 'exploreBtn' },
 								'Explore'
+							)
+						),
+						React.createElement(
+							'a',
+							{ href: 'https://github.com/bobmccarthy/tic-tac-bob' },
+							React.createElement(
+								'button',
+								{ className: 'codePage' },
+								'See the Code'
 							)
 						)
 					)
