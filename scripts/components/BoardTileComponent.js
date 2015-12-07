@@ -11,9 +11,12 @@ module.exports = React.createClass({
 			plays: 0
 		}
 	},
+	//this checks to see if all the moves have been made without a winner. I had to look up React lifecycles to figure this one out. A few times i tried to put it in the render, but i couldnt update the state while already in the process of updating the state.
+	componentDidUpdate: function(){
+		this.cats();
+	},
 	render: function() {
 		
-		console.log(this.state.plays);
 		if (this.state.turn){
 			var playerTurn=(<div id="directions">{this.state.turn}`s Turn!!!</div>);
 		}
@@ -22,19 +25,28 @@ module.exports = React.createClass({
 		}
 		
 		var counter=-1;
+		//this returns all the board spaces as html the counter starts at -1 because it is added to immediately on each iteration of the boardArray and then it will serve as the index of the tile, via being its id
 		var allSpaces= this.state.boardArray.map((tile)=>{
 			counter=counter+1;
 			return(
 				<div onClick={this.choice} id={'a'+counter} key={counter} className="tile"><span>{tile}</span></div>
 				)
 			
-		})
+		});
 		var names = (<div className="vs">{this.state.playerOne} vs. {this.state.playerTwo}</div>);
+
+		//this decides what to display when winner state is set
 		if (this.state.winner){
-			var playerTurn = (<div id="winner">{this.state.turn} Wins! Yay! You did it!</div>);
+			if (this.state.turn=='cats game!'){
+				var playerTurn = (<div id="winner">{this.state.turn}</div>)
+			}
+			else{
+				var playerTurn = (<div id="winner">{this.state.turn} Wins! Yay! You did it!</div>);
+			}
+			
 		}
 		return(
-			<div className="tttPage">
+			<div>
 				<div className="title">
 					<h1>Tic-Tac-Bob</h1>
 					<input onKeyUp={this.setPlayer1} ref="player1" placeholder="Type Player 1 Name"/>
@@ -55,7 +67,6 @@ module.exports = React.createClass({
 				</div>
 				
 				<footer className="footer">
-					<button onClick={this.back}>Back to Portfolio</button>
 					<div className="select">
 						<select onChange={this.background} ref="select">
 							<option value="1">Meadow +</option>
@@ -63,7 +74,7 @@ module.exports = React.createClass({
 							<option value="3">By the Lake +</option>
 						</select>
 					</div>
-					<div className="changeB">Background:</div>
+					<div className="changeB">Change Background:</div>
 				</footer>
 			</div>
 		)
@@ -71,6 +82,7 @@ module.exports = React.createClass({
 		
 		
 	},
+	//keyup functions when typing in who is playing
 	setPlayer1: function(){
 		this.setState({
 			playerOne: this.refs.player1.value,
@@ -87,34 +99,49 @@ module.exports = React.createClass({
 		})
 	},
 	play: function(){
-		this.setState({
-			winner: false,
-			boardArray: ['','','','','','','','',''],
-			turn: this.state.playerOne
-		})
+		//can only play if opponents have been entered
+		if(this.state.playerOne!==''&&this.state.playerTwo!==''){
+			this.setState({
+				winner: false,
+				boardArray: ['','','','','','','','',''],
+				turn: this.state.playerOne
+			})
+		}
+		
 	},
 	restart: function(){
-		this.setState({
-			winner: false,
-			boardArray: ['','','','','','','','',''],
-			turn: this.state.playerOne,
-			plays: 0
-		})
+		//makes sure game is actually going
+		if (this.state.turn){
+			this.setState({
+				winner: false,
+				boardArray: ['','','','','','','','',''],
+				turn: this.state.playerOne,
+				plays: 0
+			})
+		}
+		
 	},
 	choice: function(i){
-		// console.log(i.target.id[1]);
+		//this is making sure the game doesn't continue if there is a winner already
 		if(this.state.winner){
 			console.log('winner');
 		}
+
 		else{
+			//target is the tile picked. passed argument i into the function as a reference to the tile picked. i.target.id is the tile's id, [1] is the number of the tile (because id's can't just be numbers i put an a in front). i then take the number and associate it with that index in the boardArray
+
 			var target=i.target.id[1];
 			var array = this.state.boardArray;
+			//if index of array is not empty, it has been chosen
 			if (array[target]!==''){
 				console.log('try again');
 			}
+
 			else{
+				//if this.state.turn hasnt been declaired yet by typing in opponents, this if statement wont run. This keeps you from playing without setting player names.
 				if (this.state.turn==this.state.playerOne){
 					array[target]='x';
+					//after it marked an x, it checks to see if there is a winner.
 					if (
 						array[0]=='x'&&array[1]=='x'&&array[2]=='x'||
 						array[3]=='x'&&array[4]=='x'&&array[5]=='x'||
@@ -125,11 +152,12 @@ module.exports = React.createClass({
 						array[0]=='x'&&array[4]=='x'&&array[8]=='x'||
 						array[2]=='x'&&array[4]=='x'&&array[6]=='x'
 						){
+						console.log('winner if statement');
 						this.setState({
 							winner: true
 						})
 					}
-					
+					//each turn resets the state of whos turn it is, which re-renders with the next player's turn.
 					else{
 						this.setState({
 							boardArray: array,
@@ -137,12 +165,7 @@ module.exports = React.createClass({
 							plays: this.state.plays+1
 						})
 					}
-					if (this.state.plays==8){
-						this.setState({
-							winner: true,
-							turn: 'Cats Game'
-						})
-					}
+					
 					
 				}
 				else if (this.state.turn==this.state.playerTwo){
@@ -169,12 +192,6 @@ module.exports = React.createClass({
 							plays: this.state.plays+1
 						})
 					}
-					if (this.state.plays==8){
-						this.setState({
-							winner: true,
-							turn: 'Cats Game'
-						})
-					}
 				}
 			}
 		}
@@ -195,8 +212,13 @@ module.exports = React.createClass({
 			//http://www.wallpapereast.com/static/images/nature-wallpaper-1080x1920.jpg
 		}
 	},
-	back: function(){
-		this.props.router.navigate('#', {trigger: true});
+	cats: function(){
+		if (this.state.plays==9&&this.state.winner==false){
+			this.setState({
+				winner: true,
+				turn: 'cats game!'
+			})
+		}
 	}
 });
 
