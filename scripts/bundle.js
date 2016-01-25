@@ -34129,7 +34129,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListModel":190,"react":173}],175:[function(require,module,exports){
+},{"../models/ListModel":192,"react":173}],175:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -34147,10 +34147,13 @@ module.exports = React.createClass({
 			plays: 0
 		};
 	},
+	//this checks to see if all the moves have been made without a winner. I had to look up React lifecycles to figure this one out. A few times i tried to put it in the render, but i couldnt update the state while already in the process of updating the state.
+	componentDidUpdate: function componentDidUpdate() {
+		this.cats();
+	},
 	render: function render() {
 		var _this = this;
 
-		console.log(this.state.plays);
 		if (this.state.turn) {
 			var playerTurn = React.createElement(
 				'div',
@@ -34167,6 +34170,7 @@ module.exports = React.createClass({
 		}
 
 		var counter = -1;
+		//this returns all the board spaces as html the counter starts at -1 because it is added to immediately on each iteration of the boardArray and then it will serve as the index of the tile, via being its id
 		var allSpaces = this.state.boardArray.map(function (tile) {
 			counter = counter + 1;
 			return React.createElement(
@@ -34186,17 +34190,27 @@ module.exports = React.createClass({
 			' vs. ',
 			this.state.playerTwo
 		);
+
+		//this decides what to display when winner state is set
 		if (this.state.winner) {
-			var playerTurn = React.createElement(
-				'div',
-				{ id: 'winner' },
-				this.state.turn,
-				' Wins! Yay! You did it!'
-			);
+			if (this.state.turn == 'cats game!') {
+				var playerTurn = React.createElement(
+					'div',
+					{ id: 'winner' },
+					this.state.turn
+				);
+			} else {
+				var playerTurn = React.createElement(
+					'div',
+					{ id: 'winner' },
+					this.state.turn,
+					' Wins! Yay! You did it!'
+				);
+			}
 		}
 		return React.createElement(
 			'div',
-			{ className: 'tttPage' },
+			null,
 			React.createElement(
 				'div',
 				{ className: 'title' },
@@ -34241,11 +34255,6 @@ module.exports = React.createClass({
 				'footer',
 				{ className: 'footer' },
 				React.createElement(
-					'button',
-					{ onClick: this.back },
-					'Back to Portfolio'
-				),
-				React.createElement(
 					'div',
 					{ className: 'select' },
 					React.createElement(
@@ -34271,11 +34280,12 @@ module.exports = React.createClass({
 				React.createElement(
 					'div',
 					{ className: 'changeB' },
-					'Background:'
+					'Change Background:'
 				)
 			)
 		);
 	},
+	//keyup functions when typing in who is playing
 	setPlayer1: function setPlayer1() {
 		this.setState({
 			playerOne: this.refs.player1.value,
@@ -34292,49 +34302,57 @@ module.exports = React.createClass({
 		});
 	},
 	play: function play() {
-		this.setState({
-			winner: false,
-			boardArray: ['', '', '', '', '', '', '', '', ''],
-			turn: this.state.playerOne
-		});
+		//can only play if opponents have been entered
+		if (this.state.playerOne !== '' && this.state.playerTwo !== '') {
+			this.setState({
+				winner: false,
+				boardArray: ['', '', '', '', '', '', '', '', ''],
+				turn: this.state.playerOne
+			});
+		}
 	},
 	restart: function restart() {
-		this.setState({
-			winner: false,
-			boardArray: ['', '', '', '', '', '', '', '', ''],
-			turn: this.state.playerOne,
-			plays: 0
-		});
+		//makes sure game is actually going
+		if (this.state.turn) {
+			this.setState({
+				winner: false,
+				boardArray: ['', '', '', '', '', '', '', '', ''],
+				turn: this.state.playerOne,
+				plays: 0
+			});
+		}
 	},
 	choice: function choice(i) {
-		// console.log(i.target.id[1]);
+		//this is making sure the game doesn't continue if there is a winner already
 		if (this.state.winner) {
 			console.log('winner');
 		} else {
+			//target is the tile picked. passed argument i into the function as a reference to the tile picked. i.target.id is the tile's id, [1] is the number of the tile (because id's can't just be numbers i put an a in front). i then take the number and associate it with that index in the boardArray
+
 			var target = i.target.id[1];
 			var array = this.state.boardArray;
+			//if index of array is not empty, it has been chosen
 			if (array[target] !== '') {
 				console.log('try again');
 			} else {
+				//if this.state.turn hasnt been declaired yet by typing in opponents, this if statement wont run. This keeps you from playing without setting player names.
 				if (this.state.turn == this.state.playerOne) {
 					array[target] = 'x';
+					//after it marked an x, it checks to see if there is a winner.
 					if (array[0] == 'x' && array[1] == 'x' && array[2] == 'x' || array[3] == 'x' && array[4] == 'x' && array[5] == 'x' || array[6] == 'x' && array[7] == 'x' && array[8] == 'x' || array[0] == 'x' && array[3] == 'x' && array[6] == 'x' || array[1] == 'x' && array[4] == 'x' && array[7] == 'x' || array[2] == 'x' && array[5] == 'x' && array[8] == 'x' || array[0] == 'x' && array[4] == 'x' && array[8] == 'x' || array[2] == 'x' && array[4] == 'x' && array[6] == 'x') {
+						console.log('winner if statement');
 						this.setState({
 							winner: true
 						});
-					} else {
-						this.setState({
-							boardArray: array,
-							turn: this.state.playerTwo,
-							plays: this.state.plays + 1
-						});
 					}
-					if (this.state.plays == 8) {
-						this.setState({
-							winner: true,
-							turn: 'Cats Game'
-						});
-					}
+					//each turn resets the state of whos turn it is, which re-renders with the next player's turn.
+					else {
+							this.setState({
+								boardArray: array,
+								turn: this.state.playerTwo,
+								plays: this.state.plays + 1
+							});
+						}
 				} else if (this.state.turn == this.state.playerTwo) {
 					array[target] = 'o';
 					if (array[0] == 'o' && array[1] == 'o' && array[2] == 'o' || array[3] == 'o' && array[4] == 'o' && array[5] == 'o' || array[6] == 'o' && array[7] == 'o' && array[8] == 'o' || array[0] == 'o' && array[3] == 'o' && array[6] == 'o' || array[1] == 'o' && array[4] == 'o' && array[7] == 'o' || array[2] == 'o' && array[5] == 'o' && array[8] == 'o' || array[0] == 'o' && array[4] == 'o' && array[8] == 'o' || array[2] == 'o' && array[4] == 'o' && array[6] == 'o') {
@@ -34346,12 +34364,6 @@ module.exports = React.createClass({
 							boardArray: array,
 							turn: this.state.playerOne,
 							plays: this.state.plays + 1
-						});
-					}
-					if (this.state.plays == 8) {
-						this.setState({
-							winner: true,
-							turn: 'Cats Game'
 						});
 					}
 				}
@@ -34372,12 +34384,263 @@ module.exports = React.createClass({
 			//http://www.wallpapereast.com/static/images/nature-wallpaper-1080x1920.jpg
 		}
 	},
-	back: function back() {
-		this.props.router.navigate('#', { trigger: true });
+	cats: function cats() {
+		if (this.state.plays == 9 && this.state.winner == false) {
+			this.setState({
+				winner: true,
+				turn: 'cats game!'
+			});
+		}
 	}
 });
 
 },{"react":173}],176:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var $ = require('jquery');
+var FinancesModel = require('../models/FinancesModel');
+var financesQuery = new Parse.Query(FinancesModel);
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	getInitialState: function getInitialState() {
+		return {
+			entries: [],
+			newer: 0
+		};
+	},
+	componentWillMount: function componentWillMount() {
+		var _this = this;
+
+		financesQuery.find().then(function (list) {
+			_this.setState({ entries: list });
+		});
+	},
+	render: function render() {
+		var total = 0;
+
+		var otherTotal = 0;
+		var gasTotal = 0;
+		var groceryTotal = 0;
+		var goingOutTotal = 0;
+		console.log(this.state.entries);
+		var table = this.state.entries.map(function (entry) {
+			total = total + entry.get('Amount');
+			if (entry.get('Description')) {
+				otherTotal = otherTotal + entry.get('Amount');
+				var des = React.createElement(
+					'div',
+					{ className: 'tRow' },
+					entry.get('Description')
+				);
+			} else {
+				var des = React.createElement(
+					'div',
+					{ className: 'tRow' },
+					entry.get('Type')
+				);
+			}
+			if (entry.get('Type') == 'Gas') {
+				gasTotal = gasTotal + entry.get('Amount');
+			}
+			if (entry.get('Type') == 'Groceries') {
+				groceryTotal = groceryTotal + entry.get('Amount');
+			}
+			if (entry.get('Type') == 'Going Out') {
+				goingOutTotal = goingOutTotal + entry.get('Amount');
+			}
+			return React.createElement(
+				'div',
+				{ className: 'eachEntry', key: entry.id },
+				React.createElement(
+					'div',
+					{ className: 'tRow' },
+					entry.get('Date').substring(5, 12)
+				),
+				React.createElement(
+					'div',
+					{ className: 'tRow' },
+					'$',
+					entry.get('Amount')
+				),
+				des
+			);
+		});
+		return React.createElement(
+			'div',
+			null,
+			React.createElement(
+				'form',
+				{ onSubmit: this.entry, className: 'form box-shadow--2dp' },
+				React.createElement(
+					'h2',
+					null,
+					'Date'
+				),
+				React.createElement('input', { className: 'date', ref: 'date', type: 'date' }),
+				React.createElement(
+					'h2',
+					null,
+					'For What?'
+				),
+				React.createElement(
+					'select',
+					{ onChange: this.descript, ref: 'kind' },
+					React.createElement(
+						'option',
+						null,
+						'Gas'
+					),
+					React.createElement(
+						'option',
+						null,
+						'Groceries'
+					),
+					React.createElement(
+						'option',
+						null,
+						'Going Out'
+					),
+					React.createElement(
+						'option',
+						null,
+						'Other'
+					)
+				),
+				React.createElement('input', { id: 'desc', ref: 'descr', placeholder: 'description' }),
+				React.createElement(
+					'h2',
+					null,
+					'Amount'
+				),
+				React.createElement('input', { className: 'amountC', ref: 'amount', type: 'number' }),
+				React.createElement(
+					'button',
+					null,
+					'Enter'
+				)
+			),
+			React.createElement(
+				'div',
+				{ className: 'floats' },
+				React.createElement(
+					'div',
+					{ className: 'totalAmt box-shadow--4dp' },
+					React.createElement(
+						'h2',
+						null,
+						'Total: $',
+						total
+					),
+					React.createElement(
+						'h2',
+						null,
+						'Gas Total: $',
+						gasTotal
+					),
+					React.createElement(
+						'h2',
+						null,
+						'Groceries Total: $',
+						groceryTotal
+					),
+					React.createElement(
+						'h2',
+						null,
+						'Going Out Total: $',
+						goingOutTotal
+					),
+					React.createElement(
+						'h2',
+						null,
+						'Other Total: $',
+						otherTotal
+					)
+				),
+				React.createElement(
+					'div',
+					{ className: 'totalLeft box-shadow--4dp' },
+					React.createElement(
+						'h2',
+						null,
+						'Total Left: $',
+						700 - total
+					),
+					React.createElement(
+						'h2',
+						null,
+						'Gas Total Left: $',
+						200 - gasTotal
+					),
+					React.createElement(
+						'h2',
+						null,
+						'Groceries Total Left: $',
+						200 - groceryTotal
+					),
+					React.createElement(
+						'h2',
+						null,
+						'Going Out Total Left: $',
+						200 - goingOutTotal
+					),
+					React.createElement(
+						'h2',
+						null,
+						'Other Total Left: $',
+						100 - otherTotal
+					)
+				)
+			),
+			React.createElement(
+				'div',
+				{ className: 'outsideText' },
+				'Expenditures'
+			),
+			React.createElement(
+				'div',
+				{ className: 'allTable box-shadow--2dp' },
+				table
+			)
+		);
+	},
+	entry: function entry(e) {
+		var _this2 = this;
+
+		e.preventDefault();
+		console.log(this.refs.kind.value);
+		console.log(this.refs.date.value);
+		console.log(parseInt(this.refs.amount.value));
+		var financesAdd = new FinancesModel();
+		if (this.refs.descr.value) {
+			financesAdd.set('Description', this.refs.descr.value);
+		}
+		financesAdd.set('Date', this.refs.date.value);
+		financesAdd.set('Type', this.refs.kind.value);
+		financesAdd.set('Amount', parseInt(this.refs.amount.value));
+		financesAdd.save({
+
+			success: function success() {
+				$('.date').val('');
+				$('.amountC').val('');
+				financesQuery.find().then(function (list) {
+					_this2.setState({ entries: list });
+				});
+			}
+		});
+	},
+	descript: function descript() {
+
+		if (this.refs.kind.value == 'Other') {
+			document.getElementById('desc').style.display = 'block';
+		}
+	}
+});
+//comments here
+
+},{"../models/FinancesModel":191,"jquery":17,"react":173}],177:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -34462,7 +34725,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListProductsModel":191,"../models/ProductModel":192,"jquery":17,"react":173}],177:[function(require,module,exports){
+},{"../models/ListProductsModel":193,"../models/ProductModel":194,"jquery":17,"react":173}],178:[function(require,module,exports){
 //This is the navigation component. The router has been passed in as a property.
 'use strict';
 
@@ -34576,7 +34839,7 @@ module.exports = React.createClass({
 // 					<img src="../../images/phone.png"/>
 // 				</div>
 
-},{"backbone":1,"react":173}],178:[function(require,module,exports){
+},{"backbone":1,"react":173}],179:[function(require,module,exports){
 //This is the navigation component. The router has been passed in as a property.
 'use strict';
 
@@ -34600,7 +34863,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"backbone":1,"react":173}],179:[function(require,module,exports){
+},{"backbone":1,"react":173}],180:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -34640,7 +34903,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ProductModel":192,"./SingleProductBoxComponent":187,"react":173}],180:[function(require,module,exports){
+},{"../models/ProductModel":194,"./SingleProductBoxComponent":188,"react":173}],181:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -34692,7 +34955,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListModel":190,"backbone":1,"jquery":17,"react":173}],181:[function(require,module,exports){
+},{"../models/ListModel":192,"backbone":1,"jquery":17,"react":173}],182:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -34810,7 +35073,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListModel":190,"../models/ProductModel":192,"../models/UserModel":193,"./EachProductComponent":176,"./TotalPriceComponent":188,"backbone":1,"backbone/node_modules/underscore":2,"react":173}],182:[function(require,module,exports){
+},{"../models/ListModel":192,"../models/ProductModel":194,"../models/UserModel":195,"./EachProductComponent":177,"./TotalPriceComponent":189,"backbone":1,"backbone/node_modules/underscore":2,"react":173}],183:[function(require,module,exports){
 //This is the navigation component. The router has been passed in as a property.
 'use strict';
 
@@ -35034,7 +35297,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListModel":190,"backbone":1,"bootstrap":3,"jquery":17,"react":173}],183:[function(require,module,exports){
+},{"../models/ListModel":192,"backbone":1,"bootstrap":3,"jquery":17,"react":173}],184:[function(require,module,exports){
 //This is the navigation component. The router has been passed in as a property.
 'use strict';
 
@@ -35578,7 +35841,7 @@ module.exports = React.createClass({
 // 					<img src="../../images/phone.png"/>
 // 				</div>
 
-},{"backbone":1,"react":173}],184:[function(require,module,exports){
+},{"backbone":1,"react":173}],185:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -35638,7 +35901,7 @@ module.exports = React.createClass({
 
 });
 
-},{"react":173}],185:[function(require,module,exports){
+},{"react":173}],186:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -35906,7 +36169,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListModel":190,"../models/ListProductsModel":191,"../models/ProductModel":192,"./ListDropdownComponent":180,"./ProductBoxComponent":184,"backbone":1,"jquery":17,"react":173}],186:[function(require,module,exports){
+},{"../models/ListModel":192,"../models/ListProductsModel":193,"../models/ProductModel":194,"./ListDropdownComponent":181,"./ProductBoxComponent":185,"backbone":1,"jquery":17,"react":173}],187:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -36004,7 +36267,7 @@ module.exports = React.createClass({
 
 });
 
-},{"jquery":17,"react":173}],187:[function(require,module,exports){
+},{"jquery":17,"react":173}],188:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -36054,7 +36317,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"react":173}],188:[function(require,module,exports){
+},{"react":173}],189:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -36104,7 +36367,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/ListProductsModel":191,"../models/ProductModel":192,"jquery":17,"react":173}],189:[function(require,module,exports){
+},{"../models/ListProductsModel":193,"../models/ProductModel":194,"jquery":17,"react":173}],190:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var bootstrap = require('bootstrap');
@@ -36126,6 +36389,7 @@ var ItemDetailsComponent = require('./components/ItemDetailsComponent');
 var AddListComponent = require('./components/AddListComponent');
 var IronQuizzesComponent = require('./components/IronQuizzesComponent');
 var BoardTileComponent = require('./components/BoardTileComponent');
+var BudgetComponent = require('./components/BudgetComponent');
 
 $(document).on('ready', function () {
 	var Router = Backbone.Router.extend({
@@ -36140,7 +36404,8 @@ $(document).on('ready', function () {
 			'details/:id': 'details',
 			'addList': 'addList',
 			'IQ': 'IQhome',
-			'ttt': 'ttt'
+			'ttt': 'ttt',
+			'finances': 'finances'
 		},
 		home: function home() {
 
@@ -36185,6 +36450,10 @@ $(document).on('ready', function () {
 		ttt: function ttt() {
 			ReactDOM.render(React.createElement(BoardTileComponent, { router: r }), document.getElementById('main'));
 			$('body').scrollTop(0);
+		},
+		finances: function finances() {
+			Parse.initialize('nVzrZSyHc9zZEKd3UGiztb7Z1m001ScibBLpA5o2', 'vyuHvAK922TMbdvvkXZb8oK89a2paFCRqzDTVEmh');
+			ReactDOM.render(React.createElement(BudgetComponent, { router: r }), document.getElementById('main'));
 		}
 	});
 
@@ -36192,35 +36461,42 @@ $(document).on('ready', function () {
 	Backbone.history.start();
 });
 
-},{"./components/AddListComponent":174,"./components/BoardTileComponent":175,"./components/HomeComponent":177,"./components/IronQuizzesComponent":178,"./components/ItemDetailsComponent":179,"./components/MyListsComponent":181,"./components/NavigationComponent":182,"./components/PPageComponent":183,"./components/ProductSearchComponent":185,"./components/ProfileComponent":186,"backbone":1,"bootstrap":3,"jquery":17,"react":173,"react-dom":18}],190:[function(require,module,exports){
+},{"./components/AddListComponent":174,"./components/BoardTileComponent":175,"./components/BudgetComponent":176,"./components/HomeComponent":178,"./components/IronQuizzesComponent":179,"./components/ItemDetailsComponent":180,"./components/MyListsComponent":182,"./components/NavigationComponent":183,"./components/PPageComponent":184,"./components/ProductSearchComponent":186,"./components/ProfileComponent":187,"backbone":1,"bootstrap":3,"jquery":17,"react":173,"react-dom":18}],191:[function(require,module,exports){
 'use strict';
 
 module.exports = Parse.Object.extend({
-  className: 'lists'
-});
-
-},{}],191:[function(require,module,exports){
-'use strict';
-
-module.exports = Parse.Object.extend({
-  className: 'ListProducts'
+  className: 'Finances'
 });
 
 },{}],192:[function(require,module,exports){
 'use strict';
 
 module.exports = Parse.Object.extend({
-  className: 'products'
+  className: 'lists'
 });
 
 },{}],193:[function(require,module,exports){
 'use strict';
 
 module.exports = Parse.Object.extend({
+  className: 'ListProducts'
+});
+
+},{}],194:[function(require,module,exports){
+'use strict';
+
+module.exports = Parse.Object.extend({
+  className: 'products'
+});
+
+},{}],195:[function(require,module,exports){
+'use strict';
+
+module.exports = Parse.Object.extend({
   className: 'User'
 });
 
-},{}]},{},[189])
+},{}]},{},[190])
 
 
 //# sourceMappingURL=bundle.js.map

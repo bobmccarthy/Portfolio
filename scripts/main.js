@@ -19,6 +19,7 @@ var ItemDetailsComponent = require('./components/ItemDetailsComponent');
 var AddListComponent = require('./components/AddListComponent');
 var IronQuizzesComponent = require('./components/IronQuizzesComponent');
 var BoardTileComponent = require('./components/BoardTileComponent');
+var BudgetComponent = require('./components/BudgetComponent');
 
 
 $(document).on('ready', function(){
@@ -34,7 +35,8 @@ $(document).on('ready', function(){
 			'details/:id': 'details',
 			'addList': 'addList',
 			'IQ': 'IQhome',
-			'ttt': 'ttt'
+			'ttt': 'ttt',
+			'finances': 'finances'
 		},
 		home: function(){
 			
@@ -100,6 +102,11 @@ $(document).on('ready', function(){
 			ReactDOM.render(<BoardTileComponent router={r} />,
 			document.getElementById('main'));
 			$('body').scrollTop(0);
+		},
+		finances: function(){
+			Parse.initialize('nVzrZSyHc9zZEKd3UGiztb7Z1m001ScibBLpA5o2', 'vyuHvAK922TMbdvvkXZb8oK89a2paFCRqzDTVEmh');
+			ReactDOM.render(<BudgetComponent router={r} />,
+			document.getElementById('main'));
 		}
 	});
 
