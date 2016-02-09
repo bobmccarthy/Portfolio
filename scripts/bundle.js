@@ -35361,15 +35361,6 @@ module.exports = React.createClass({
 							'p',
 							null,
 							'Recent graduate of The Iron Yard, Austin. Voted `Javascript Warloard`, I have just found my love for coding. As you explore my portfolio, click as many buttons as you can. This site is a representation of some of the things I learned over the Front-end Engineering course I took. Have fun and enjoy!'
-						),
-						React.createElement(
-							'a',
-							{ href: 'https://www.linkedin.com/in/bobmccarthyatx' },
-							React.createElement(
-								'button',
-								{ className: 'linkedIn' },
-								'View My LinkedIn'
-							)
 						)
 					),
 					React.createElement(
@@ -35394,6 +35385,114 @@ module.exports = React.createClass({
 							'p',
 							null,
 							'You`ll often see me with an instrument in my hand. I have a bad, or good depending on how you look at it, habit of trying to learn every instrument I can get my hands on. The outdoors intrigue me. Hiking, swimming, and camping are a must-do for me to keep my sanity. '
+						),
+						React.createElement(
+							'a',
+							{ href: 'https://www.linkedin.com/in/bobmccarthyatx' },
+							React.createElement(
+								'button',
+								{ className: 'linkedIn' },
+								'View My LinkedIn'
+							)
+						)
+					)
+				),
+				React.createElement(
+					'div',
+					{ className: 'row BlogRow' },
+					React.createElement(
+						'div',
+						{ className: 'col-xs-12 col-sm-4 rightFloated' },
+						React.createElement(
+							'div',
+							{ id: 'carousel-example-generic2', className: 'carousel slide', 'data-ride': 'carousel', 'data-interval': '11000' },
+							React.createElement(
+								'ol',
+								{ className: 'carousel-indicators' },
+								React.createElement('li', { 'data-target': '#carousel-example-generic2', 'data-slide-to': '0', className: 'active' }),
+								React.createElement('li', { 'data-target': '#carousel-example-generic2', 'data-slide-to': '1' }),
+								React.createElement('li', { 'data-target': '#carousel-example-generic2', 'data-slide-to': '2' })
+							),
+							React.createElement(
+								'div',
+								{ className: 'carousel-inner' },
+								React.createElement(
+									'div',
+									{ className: 'item active' },
+									React.createElement('img', { className: 'computer1', src: '../../images/FFL1.png' }),
+									React.createElement(
+										'div',
+										{ className: 'carousel-caption' },
+										React.createElement('h3', null)
+									)
+								),
+								React.createElement(
+									'div',
+									{ className: 'item' },
+									React.createElement('img', { className: 'adjust', src: '../../images/FFL2.png' }),
+									React.createElement(
+										'div',
+										{ className: 'carousel-caption' },
+										React.createElement('h3', null)
+									)
+								),
+								React.createElement(
+									'div',
+									{ className: 'item' },
+									React.createElement('img', { src: '../../images/FFL3.png', alt: '...' }),
+									React.createElement(
+										'div',
+										{ className: 'carousel-caption' },
+										React.createElement('h3', null)
+									)
+								)
+							),
+							React.createElement(
+								'a',
+								{ className: 'left carousel-control', href: '#carousel-example-generic2', role: 'button', 'data-slide': 'prev' },
+								React.createElement('span', { className: 'glyphicon glyphicon-chevron-left' })
+							),
+							React.createElement(
+								'a',
+								{ className: 'right carousel-control', href: '#carousel-example-generic2', role: 'button', 'data-slide': 'next' },
+								React.createElement('span', { className: 'glyphicon glyphicon-chevron-right' })
+							)
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'col-xs-12 col-sm-8' },
+						React.createElement(
+							'a',
+							{ href: 'http://www.friendshipsforlife.org' },
+							React.createElement(
+								'h2',
+								null,
+								'FriendshipsForLife.org!'
+							)
+						),
+						React.createElement(
+							'p',
+							null,
+							'This is my first contracted project as a web developer. I made this site for a local non-profit that helps adults with special needs connect with the community. It was the first time I created a blog with the ability to select photos from your computer or device so I learned how to use FileStack (previously FilePicker). As the blog is being created, the staff can choose if they want the newest post on the home page. This is a way that the staff can update the page without having to write the code.'
+						),
+						React.createElement(
+							'a',
+							{ href: 'http://www.friendshipsforlife.org' },
+							React.createElement(
+								'button',
+								{ className: 'exploreBtn' },
+								'Explore'
+							)
+						),
+						React.createElement(
+							'a',
+							{ href: 'https://github.com/bobmccarthy/FFL-site' },
+							React.createElement(
+								'button',
+								{ className: 'codePage' },
+								'See the Code'
+							)
 						)
 					)
 				),
@@ -35672,7 +35771,7 @@ module.exports = React.createClass({
 						React.createElement(
 							'p',
 							null,
-							'Take a look at my latest creation. Built with HTML, CSS, JavaScript, and React.'
+							'Take a look at my 24hr code challenge. Built with HTML, CSS, JavaScript, and React.'
 						),
 						React.createElement(
 							'a',

@@ -23,13 +23,60 @@ module.exports = React.createClass({
 					<div className="row aboutMe">
 						<div className="col-xs-12 col-md-4">
 							<p>Recent graduate of The Iron Yard, Austin. Voted `Javascript Warloard`, I have just found my love for coding. As you explore my portfolio, click as many buttons as you can. This site is a representation of some of the things I learned over the Front-end Engineering course I took. Have fun and enjoy!</p>
-							<a href="https://www.linkedin.com/in/bobmccarthyatx"><button className="linkedIn">View My LinkedIn</button></a>
+							
 						</div>
 						<div className="col-xs-12 col-md-4">
 							<p>I used React to build this site. Most of my HTML is sepereated into special components that only get shown on the page in specific circumstances. I am familiar with CSS, and prefer to use a transpiler so I can style using SASS, and have the page read it as CSS. I enjoy using the Bootstrap grid system, but pretty much can`t stand their default styling. So, on this site I used some of the Materialize CSS as well. JavaScript has become my forte. I am the only person I know who <i>likes</i> whiteboarding.</p>
 						</div>
 						<div className="col-xs-12 col-md-4">
 							<p>You`ll often see me with an instrument in my hand. I have a bad, or good depending on how you look at it, habit of trying to learn every instrument I can get my hands on. The outdoors intrigue me. Hiking, swimming, and camping are a must-do for me to keep my sanity. </p>
+							<a href="https://www.linkedin.com/in/bobmccarthyatx"><button className="linkedIn">View My LinkedIn</button></a>
+						</div>
+					</div>
+					<div className="row BlogRow">
+						<div className="col-xs-12 col-sm-4 rightFloated">
+							<div id="carousel-example-generic2" className="carousel slide" data-ride="carousel" data-interval="11000">
+								<ol className="carousel-indicators">
+									<li data-target="#carousel-example-generic2" data-slide-to="0" className="active"></li>
+									<li data-target="#carousel-example-generic2" data-slide-to="1"></li>
+									<li data-target="#carousel-example-generic2" data-slide-to="2"></li>
+								</ol>
+
+								<div className="carousel-inner">
+									<div className="item active">
+										<img className="computer1" src="../../images/FFL1.png"/>
+										<div className="carousel-caption">
+											<h3></h3>
+										</div>
+									</div>
+									<div className="item">
+										<img className="adjust" src="../../images/FFL2.png"/>
+										<div className="carousel-caption">
+											<h3></h3>
+										</div>
+									</div>
+									<div className="item">
+										<img src="../../images/FFL3.png" alt="..."/>
+										<div className="carousel-caption">
+											<h3></h3>
+										</div>
+									</div>
+								</div>
+
+								
+								<a className="left carousel-control" href="#carousel-example-generic2" role="button" data-slide="prev">
+									<span className="glyphicon glyphicon-chevron-left"></span>
+								</a>
+								<a className="right carousel-control" href="#carousel-example-generic2" role="button" data-slide="next">
+									<span className="glyphicon glyphicon-chevron-right"></span>
+								</a>
+							</div> 
+						</div>
+						<div className="col-xs-12 col-sm-8">
+							<a href="http://www.friendshipsforlife.org"><h2>FriendshipsForLife.org!</h2></a>
+							<p>This is my first contracted project as a web developer. I made this site for a local non-profit that helps adults with special needs connect with the community. It was the first time I created a blog with the ability to select photos from your computer or device so I learned how to use FileStack (previously FilePicker). As the blog is being created, the staff can choose if they want the newest post on the home page. This is a way that the staff can update the page without having to write the code.</p>
+							<a href="http://www.friendshipsforlife.org"><button className="exploreBtn">Explore</button></a>
+							<a href="https://github.com/bobmccarthy/FFL-site"><button className="codePage">See the Code</button></a>
 						</div>
 					</div>
 					<div className="row GistRow">
@@ -165,7 +212,7 @@ module.exports = React.createClass({
 						</div>
 						<div className="col-xs-12 col-sm-8">
 							<a href="#ttt"><h2>Lets Play!</h2></a>
-							<p>Take a look at my latest creation. Built with HTML, CSS, JavaScript, and React.</p>
+							<p>Take a look at my 24hr code challenge. Built with HTML, CSS, JavaScript, and React.</p>
 							<a href="#ttt"><button className="exploreBtn">Explore</button></a>
 							<a href="https://github.com/bobmccarthy/tic-tac-bob"><button className="codePage">See the Code</button></a>
 						</div>
